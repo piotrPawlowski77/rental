@@ -1,0 +1,254 @@
+body
+{
+/*	background-color: #2F3336;*/
+	background-image: url(../img/tlo.png);    /*   This pattern is downloaded from www.subtlepatterns.com */
+	color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+h1
+{
+	font-size: 36px;
+	font-weight: 400;
+	color: #C0D06F;
+	margin: 20px;
+}
+
+h3
+{
+    font-size: 25px;
+	font-weight: 400;
+	color: #C0D06F;
+	margin: 15px;
+}
+
+.cars
+{
+	text-align: center;
+}
+
+.cars img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+/*konfiguracja 3 kafelków na dole strony index.html*/
+.kafelek > figure > a > img
+{
+    height: 171px !important;
+    width: 330px !important;
+}
+
+/*stylizacja przycisku na dole*/
+.kafelek > figure > figcaption > button
+{
+    width: 70%;
+}
+
+.cars p
+{
+    margin-bottom: 30px;
+}
+
+.cars figcaption
+{
+    margin-top: 8px;
+}
+
+.logo_serwisu
+{
+    width: 30px;
+    height: 30px;
+}
+
+/*niwelacja "skoku wysokości nawigacji"*/
+.navbar
+{
+    min-height: 57px;
+}
+
+/* (potrzebna zeby dodać padding na top zeby nie byla pod navbar-em)*/
+body > header
+{
+    min-height: 57px;
+}
+
+/*klasa .sticky odpowiada za "przyklejenie się navbar-a" */
+.sticky
+{
+    width: 100%;
+    position: fixed;
+    /* przyklejenie navbara do lewego naroznika ekranu   */
+    left: 0;
+    top: 0;
+    z-index: 100;  /* 3-cia wspolzedna na ekranie. Im wyzsza wartosc tym bardziej "zasłania inne elementy na stronie" */
+}
+
+/*zeby input nie rozjechał się przy widoku extra-small w bootstrap*/
+.form-inline
+{
+    width: 286px;
+}
+
+/*definicja scrollup-a na stronie*/
+.scrollup
+{
+    width: 64px;
+    height: 64px;
+    text-decoration: none;
+    background: url("../img/up3.png") no-repeat 0px 0px;
+    position: fixed;
+    /*  odległości od krawędzi ekranu  */
+    right: 50px;
+    bottom: 50px;
+    z-index: 100;
+    display: none;
+}
+
+/* style mapki google i buttona na niej*/
+.mapka
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 250px;
+    border: 1px solid black; 
+    background: gray;
+    
+    margin-bottom: 20px;
+}
+
+.mapka > button
+{
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/*stylizacja formularza*/
+.formularz
+{
+    background-image: url(../img/form.png);   /*This pattern is downloaded from www.subtlepatterns.com */
+    color: black;
+/*    width: 500px;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+/*
+    -webkit-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+    -moz-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+*/
+    box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+    
+    text-align: left;
+    
+}
+
+#form1
+{
+    padding-left: 10px;
+}
+
+/*wyśrodkowanie legend w formularzu*/
+
+#form1 > fieldset > legend
+{
+    text-align: center;
+}
+
+.row_formularza
+{
+    display: block;
+}
+
+#zadanie
+{
+    resize: none;
+}
+
+/*Stylizacja inputów*/
+
+input[type=text],
+input[type=password],
+input[type=radio],
+input[type=date],
+input[type=time],
+input[type=email]
+{
+    background-color: #efefef;
+    color: #666;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=radio]:focus,
+input[type=date]:focus,
+input[type=time]:focus,
+input[type=email]:focus
+{
+/*
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+*/
+    box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    border: 2px solid #a5cda5;
+    background-color: #e9f3e9;
+    color: #428c42;
+}
+
+input[type=text],
+input[type=password]
+{
+    margin-left: 59px;
+}
+
+input[type=date]
+{
+    margin-left: 15px;
+}
+
+input[type=time]
+{
+    margin-left: 5px;
+}
+
+#wyslij, #reset, #show_button, #delete_button
+{
+    margin-bottom: 10px;
+}
+
+
+
+.czerwone
+{
+    color: red;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: block;
+    font-weight: 700;
+}
+
+/*stylizacja listy zadan ze skryptu local_storage.js*/
+.lista_zadan_style
+{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#pole_szukaj
+{
+    text-align: center;
+    
+}
+
+
