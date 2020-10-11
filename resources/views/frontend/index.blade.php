@@ -34,23 +34,7 @@
                                 <label class="sr-only" for="day_out">Check out</label>
                                 <input name="check_out" value="{{ old('check_out') }}" type="text" class="form-control datepicker" id="check_out" placeholder="Check out">
                             </div>
-                            <div class="form-group">
-                                <select name="room_size" class="form-control">
-                                    <option>Room size</option>
 
-                                    @for($i=1; $i<=5; $i++)
-
-                                        {{--jesli wartosc wpisana przez usera w pole room_size jest rowna i--}}
-                                        @if( old('room_size') ==  $i)
-                                            <option selected value="{{ $i }}">{{ $i }}</option>
-                                        @else
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endif
-
-                                    @endfor
-
-                                </select>
-                            </div>
                             <button type="submit" class="btn btn-warning">Search</button>
 
                             {{ csrf_field() }}

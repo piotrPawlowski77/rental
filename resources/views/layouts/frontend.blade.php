@@ -15,7 +15,7 @@
     <meta http-equiv="X-Ua-Compatible" content="IE=edge">
 
     <link rel="stylesheet" href=" {{ asset('css/bootstrap.min.css') }}">
-    
+
     <link rel="stylesheet" href="{{ asset('css/frontend_index.css') }}" type="text/css">
 
     <!-- Fonts -->
@@ -47,7 +47,7 @@
     @include('layouts.footer')
 
     <!--skrypty-->
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!--    atrybut integrity pozwoli nie ładować do przeglądarki kodu, który został w jakiś sposób zmanipulowany. a crossorigin jest obecny gdy korzystamy z mechanizmu: CROS (Cross-Origin Resource Sharing) pozwala użyć dod. nagłówki http na stronach  które przestrzegaja zassady same origin. Jeśli tych atrybutow nie bd to nic sie nie stanie.-->
@@ -56,8 +56,8 @@
     <script src="{{ asset('js/navbar_sticky.js') }}"></script>
 
     <!--  skrypt odpowiadający za scrollup-a  -->
-    <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
-    <script src="{{ asset('js/scroll_up.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scroll_up.js') }}"></script>
 
 
 </body>

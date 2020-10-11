@@ -2,7 +2,7 @@
 
 body {
   /*	background-color: #2F3336;*/
-  background-image: url(/images/tlo3.png?7f265ae79733166ad09cf18e63255654);
+  background-image: url(../images/tlo3.png?7f265ae79733166ad09cf18e63255654);
   /*   This pattern is downloaded from www.subtlepatterns.com */
   color: #efefef;
   font-family: "Open Sans", sans-serif;
@@ -87,7 +87,7 @@ body > header {
   width: 64px;
   height: 64px;
   text-decoration: none;
-  background: url(/images/up3.png?9981deab18fae6151ae05ff9d0054b02) no-repeat 0px 0px;
+  background: url(../images/up3.png?9981deab18fae6151ae05ff9d0054b02) no-repeat 0px 0px;
   position: fixed;
   /*  odległości od krawędzi ekranu  */
   right: 50px;

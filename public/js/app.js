@@ -37257,10 +37257,131 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/css/Footer-with-button-logo.scss":
+/*!****************************************************!*\
+  !*** ./resources/css/Footer-with-button-logo.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/fontello-codes.scss":
+/*!*******************************************!*\
+  !*** ./resources/css/fontello-codes.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/fontello-embedded.scss":
+/*!**********************************************!*\
+  !*** ./resources/css/fontello-embedded.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/fontello-ie7-codes.scss":
+/*!***********************************************!*\
+  !*** ./resources/css/fontello-ie7-codes.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/fontello-ie7.scss":
+/*!*****************************************!*\
+  !*** ./resources/css/fontello-ie7.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/fontello.scss":
+/*!*************************************!*\
+  !*** ./resources/css/fontello.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/frontend_galeria.scss":
+/*!*********************************************!*\
+  !*** ./resources/css/frontend_galeria.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/css/frontend_index.scss":
 /*!*******************************************!*\
   !*** ./resources/css/frontend_index.scss ***!
   \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/frontend_index_form.scss":
+/*!************************************************!*\
+  !*** ./resources/css/frontend_index_form.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/frontend_kontakt.scss":
+/*!*********************************************!*\
+  !*** ./resources/css/frontend_kontakt.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/frontend_o_firmie.scss":
+/*!**********************************************!*\
+  !*** ./resources/css/frontend_o_firmie.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/css/frontend_oferta.scss":
+/*!********************************************!*\
+  !*** ./resources/css/frontend_oferta.scss ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37336,15 +37457,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/css/frontend_index.scss ***!
-  \*************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/css/fontello.scss ./resources/css/fontello-codes.scss ./resources/css/fontello-embedded.scss ./resources/css/fontello-ie7.scss ./resources/css/fontello-ie7-codes.scss ./resources/css/Footer-with-button-logo.scss ./resources/css/frontend_galeria.scss ./resources/css/frontend_index.scss ./resources/css/frontend_index_form.scss ./resources/css/frontend_kontakt.scss ./resources/css/frontend_o_firmie.scss ./resources/css/frontend_oferta.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\rental\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\xampp\htdocs\rental\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_index.scss */"./resources/css/frontend_index.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\fontello.scss */"./resources/css/fontello.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\fontello-codes.scss */"./resources/css/fontello-codes.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\fontello-embedded.scss */"./resources/css/fontello-embedded.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\fontello-ie7.scss */"./resources/css/fontello-ie7.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\fontello-ie7-codes.scss */"./resources/css/fontello-ie7-codes.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\Footer-with-button-logo.scss */"./resources/css/Footer-with-button-logo.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_galeria.scss */"./resources/css/frontend_galeria.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_index.scss */"./resources/css/frontend_index.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_index_form.scss */"./resources/css/frontend_index_form.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_kontakt.scss */"./resources/css/frontend_kontakt.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_o_firmie.scss */"./resources/css/frontend_o_firmie.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\rental\resources\css\frontend_oferta.scss */"./resources/css/frontend_oferta.scss");
 
 
 /***/ })
