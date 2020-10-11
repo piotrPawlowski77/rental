@@ -16,6 +16,10 @@ h1 {
   margin: 20px;
 }
 
+.search_interactive {
+  text-align: center;
+}
+
 .cars {
   text-align: center;
 }
@@ -108,7 +112,7 @@ body > header {
   /* określa jak div ma się przetransformować */
   /*
       -webkit-transform: scale(0.9);
-      -ms-transform: scale(0.9); 
+      -ms-transform: scale(0.9);
   */
 }
 
