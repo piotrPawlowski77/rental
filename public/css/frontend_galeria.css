@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body {
+  /*	background-color: #2F3336;*/
+  background-image: url(../images/tlo3.png?7f265ae79733166ad09cf18e63255654);
+  /*   This pattern is downloaded from www.subtlepatterns.com */
+  color: #efefef;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  color: #C0D06F;
+  margin: 20px;
+}
+
+.cars {
+  text-align: center;
+}
+
+.cars img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cars p {
+  margin-bottom: 30px;
+}
+
+.cars figcaption {
+  margin-top: 8px;
+}
+
+.logo_serwisu {
+  width: 30px;
+  height: 30px;
+}
+
+/*niwelacja "skoku wysokości nawigacji"*/
+
+.navbar {
+  min-height: 57px;
+}
+
+/*klasa .sticky odpowiada za "przyklejenie się navbar-a" */
+
+.sticky {
+  width: 100%;
+  position: fixed;
+  /* przyklejenie navbara do lewego naroznika ekranu   */
+  left: 0;
+  top: 0;
+  z-index: 100;
+  /* 3-cia wspolzedna na ekranie. Im wyzsza wartosc tym bardziej "zasłania inne elementy na stronie" */
+}
+
+/* (potrzebna zeby dodać padding na top zeby nie byla pod navbar-em)*/
+
+body > header {
+  min-height: 57px;
+}
+
+/*zeby input nie rozjechał się przy widoku extra-small w bootstrap*/
+
+.form-inline {
+  width: 286px;
+}
+
+/*definicja scrollup-a na stronie*/
+
+.scrollup {
+  width: 64px;
+  height: 64px;
+  text-decoration: none;
+  background: url(../images/up3.png?9981deab18fae6151ae05ff9d0054b02) no-repeat 0px 0px;
+  position: fixed;
+  /*  odległości od krawędzi ekranu  */
+  right: 50px;
+  bottom: 50px;
+  z-index: 100;
+  display: none;
+}
+
+/*modyfikacja lightbox-a do galerii */
+
+#lightbox {
+  top: 200px !important;
+}
+
+/*efekt transition*/
+
+.kafelek {
+  transition: all 0.2s ease-in-out;
+  /* Płynne przejście od skali 1 do skali 0.9. Animacja trwa 0.2s.  */
+}
+
+.kafelek:hover {
+  transform: scale(0.9);
+  /* określa jak div ma się przetransformować */
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+}
+
