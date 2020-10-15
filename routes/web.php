@@ -21,3 +21,10 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('home');
+
+//route dla panelu admin
+Route::group(['prefix' => 'admin'], function (){
+
+    Route::get('/', [\App\Http\Controllers\BackendController::class, 'index'])->name('adminHome');
+
+});

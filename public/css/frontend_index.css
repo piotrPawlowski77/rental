@@ -20,6 +20,13 @@ h1 {
   text-align: center;
 }
 
+/*stylzacja i wysrodkowanie formularza*/
+.form_interactive
+{
+    width: 40%;
+    display: inline-block;
+}
+
 .cars {
   text-align: center;
 }

@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.backend')
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
                     <div class="col-sm-12">
 
-                        <form class="form_interactive" action="#">
+                        <form action="#">
 
                             <div class="form-group">
                                 <label class="sr-only" for="city">Miasto</label>
@@ -49,25 +49,21 @@
 
         </section>
 
-        @auth
+        <section class="cars">
 
-            <section class="cars">
+            <div class="container">
 
-                <div class="container">
+                <header>
+                    <h1>Dostępne auta</h1>
+                </header>
 
-                    <header>
-                        <h1>Dostępne auta</h1>
-                    </header>
-
-                    <div class="row">
-
-                    </div>
+                <div class="row">
 
                 </div>
 
-            </section>
+            </div>
 
-        @endauth
+        </section>
 
     </main>
 

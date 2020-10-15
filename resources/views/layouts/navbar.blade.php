@@ -2,8 +2,7 @@
 
     <nav class="navbar navbar-dark bg-success navbar-expand-xl">
 
-        <!-- <a class="navbar-brand" href="#"> <img src="img/logo.png" class="d-inline-block mr-1 align-bottom logo_serwisu" alt=""> Motor - Auto serwis </a>-->
-        <a class="navbar-brand" href="{{ route('home') }}"> <i class="icon-home-outline d-inline-block mr-1 align-bottom logo_serwisu"></i> Motor - Auto serwis </a>
+        <a class="navbar-brand" href="{{ route('home') }}"> <i class="icon-home-outline d-inline-block mr-1 align-bottom logo_serwisu"></i> Car Rental </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
             <span class="navbar-toggler-icon"></span>
@@ -18,30 +17,8 @@
                     <a class="nav-link active" href="{{ route('home') }}"> Strona główna </a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" >O firmie</a>
-
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"> O firmie </a>
-                        <a class="dropdown-item" href="#"> Opcja 2 </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <a class="dropdown-item" href="#"> Opcja 3 </a>
-                        <a class="dropdown-item" href="#"> Opcja 4 </a>
-                    </div>
-                </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Oferta </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Cennik </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Galeria </a>
+                    <a class="nav-link" href="#"> O firmie </a>
                 </li>
 
                 <li class="nav-item">
@@ -49,7 +26,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Komentarze </a>
+                    <a class="nav-link" href="#"> Opinie </a>
                 </li>
 
             </ul>
