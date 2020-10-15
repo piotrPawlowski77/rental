@@ -1,14 +1,3 @@
-@charset "UTF-8";
 
-.icon-home-outline:before {
-  content: "\E800";
-}
-
-/* '' */
-
-.icon-up-circled2:before {
-  content: "\E802";
-}
-
-/* '' */
-
+.icon-home-outline:before { content: '\e800'; } /* '' */
+.icon-up-circled2:before { content: '\e802'; } /* '' */

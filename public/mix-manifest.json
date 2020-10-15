@@ -1,21 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/fontello.css": "/css/fontello.css",
-    "/css/fontello-codes.css": "/css/fontello-codes.css",
-    "/css/fontello-embedded.css": "/css/fontello-embedded.css",
-    "/css/fontello-ie7.css": "/css/fontello-ie7.css",
-    "/css/fontello-ie7-codes.css": "/css/fontello-ie7-codes.css",
-    "/css/Footer-with-button-logo.css": "/css/Footer-with-button-logo.css",
-    "/css/frontend_galeria.css": "/css/frontend_galeria.css",
-    "/css/frontend_index.css": "/css/frontend_index.css",
-    "/css/frontend_index_form.css": "/css/frontend_index_form.css",
-    "/css/frontend_kontakt.css": "/css/frontend_kontakt.css",
-    "/css/frontend_o_firmie.css": "/css/frontend_o_firmie.css",
-    "/css/frontend_oferta.css": "/css/frontend_oferta.css",
-    "/js/bootstrap.min.js": "/js/bootstrap.min.js",
-    "/js/jquery-3.4.1.min.js": "/js/jquery-3.4.1.min.js",
-    "/js/jquery.scrollTo.min.js": "/js/jquery.scrollTo.min.js",
-    "/js/navbar_sticky.js": "/js/navbar_sticky.js",
-    "/js/scroll_up.js": "/js/scroll_up.js"
+    "/css/app.css": "/css/app.css"
 }
