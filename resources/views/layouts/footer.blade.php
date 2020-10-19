@@ -2,21 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h2 class="logo"><a href="{{ route('home') }}"> Motor </a></h2>
+                <h2 class="logo"><a href="{{ route('home') }}"> Car Rental </a></h2>
             </div>
             <div class="col-sm-2">
                 <h5>Start</h5>
                 <ul>
                     <li><a href="{{ route('home') }}">Strona główna</a></li>
                     <li><a href="{{ route('login') }}">Zaloguj się</a></li>
-                    <li><a href="#">Dokumenty</a></li>
+                    <li><a href="{{ route('register') }}">Rejestracja</a></li>
                 </ul>
             </div>
             <div class="col-sm-2">
                 <h5>O nas</h5>
                 <ul>
                     <li><a href="#">O firmie</a></li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="{{ route('contact') }}">Kontakt</a></li>
                     <li><a href="#">Opinie</a></li>
                 </ul>
             </div>
@@ -34,7 +34,7 @@
                     <a href="http://facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
                     <a href="http://plus.google.com" target="_blank" class="google"><i class="fa fa-google-plus"></i></a>
                 </div>
-                <button type="button" onclick="window.location.href='#'" class="btn btn-default">Kontakt z nami</button>
+                <button type="button" onclick="window.location.href='{{ route('contact') }}'" class="btn btn-default">Kontakt z nami</button>
             </div>
         </div>
     </div>

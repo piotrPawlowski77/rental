@@ -22,7 +22,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Kontakt </a>
+                    <a class="nav-link" href="{{ route('contact') }}"> Kontakt </a>
                 </li>
 
                 <li class="nav-item">

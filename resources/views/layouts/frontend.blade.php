@@ -59,6 +59,8 @@
     <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/scroll_up.js') }}"></script>
 
+    <!--  walidacja formularza kontaktowego jquery -->
+    <script src="{{ asset('js/contact_validation.js') }}"></script>
 
 </body>
 </html>

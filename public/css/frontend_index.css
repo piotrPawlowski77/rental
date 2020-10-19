@@ -123,3 +123,48 @@ body > header {
   */
 }
 
+/* Formularz kontaktowy na stronie kontakt: frontend/contact.blade.php */
+.contactForm
+{
+    background-image: url(../images/form.png);   /*This pattern is downloaded from www.subtlepatterns.com */
+    color: black;
+    /*    width: 500px;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*
+        -webkit-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+        -moz-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+    */
+    box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+
+    text-align: left;
+}
+
+#form1
+{
+    padding: 10px;
+}
+
+/*wyśrodkowanie legend w formularzu*/
+
+#form1 > fieldset > legend
+{
+    text-align: center;
+}
+
+.row_formularza
+{
+    display: block;
+    padding: 3px;
+    text-align: center;
+}
+
+/*stylizacja bledow w formularzu kontaktowym*/
+.czerwone
+{
+    color: red;
+    font-weight: 700;
+}
+

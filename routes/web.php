@@ -21,6 +21,8 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('home');
+Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact'])->name('contact');
+Route::post('/sendContactMessage', [App\Http\Controllers\FrontendController::class, 'sendContactMessage'])->name('sendContactMessage');
 
 //route dla panelu admin
 Route::group(['prefix' => 'admin'], function (){
