@@ -16,6 +16,7 @@ $(function(){
     $('#wyslij').click(function(){
 
         obiektEmail = /^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/;
+        obiektTresc = /^.{10,}$/;
 
         ok = true;
 
@@ -29,9 +30,7 @@ $(function(){
             $('#email_error').text('');
         }
 
-        var message_content_length = document.querySelector('#message_content').value.length;
-
-        if( message_content_length < 10){
+        if( !$('#message_content').checkField(obiektTresc) ){
             $('#message_content_error').text('Podaj treść wiadomości (conajmniej 10 znaków)');
             ok = false;
         }

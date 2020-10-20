@@ -33,7 +33,10 @@ class FrontendController extends Controller
 
     public function sendContactMessage(Request $request)
     {
-        dd($request);
+        //dd($request);
+
+        //najpierw zwaliduj formularz - a potem z gatewaya polacz sie z repozytorium
+        $this->fG->sendContactMessage($request);
 
         return redirect()->back();
     }
