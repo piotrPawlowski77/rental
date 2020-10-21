@@ -16,7 +16,9 @@ $(function(){
     $('#wyslij').click(function(){
 
         obiektEmail = /^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/;
-        obiektTresc = /^.{10,}$/;
+        var minLen = 10;
+        var maxLen = 255;
+        var messageContentLen = document.querySelector('#message_content').value.length;
 
         ok = true;
 
@@ -30,8 +32,12 @@ $(function(){
             $('#email_error').text('');
         }
 
-        if( !$('#message_content').checkField(obiektTresc) ){
-            $('#message_content_error').text('Podaj treść wiadomości (conajmniej 10 znaków)');
+        if( messageContentLen < minLen ){
+            $('#message_content_error').text('Podaj treść wiadomości dłuższą niż 10 znaków');
+            ok = false;
+        }
+        else if(messageContentLen > maxLen){
+            $('#message_content_error').text('Podaj treść wiadomości nie dłuższą niż 255 znaków');
             ok = false;
         }
         else{
@@ -41,8 +47,7 @@ $(function(){
         if(ok){
             //wyślij formularz
             $("#form1").submit();
-            alert('Przyjęto zgłoszenie!');
-            // dodajZgloszenie();
+            //alert('Przyjęto zgłoszenie!');
             return true;
         }
         else{

@@ -36,12 +36,17 @@
 
                                     <div class="row_formularza">
                                         <span id="email_error" class="czerwone"></span>
+                                        @if ($errors->any())
+                                            @foreach ($errors->all() as $error)
+                                                <span id="email_error" class="czerwone">{{ $error }}</span>
+                                            @endforeach
+                                        @endif
                                     </div>
 
                                     <div class="row_formularza">
 
                                         <div><label for="message_content" >Treść wiadomości</label></div>
-                                        <textarea name="message_content" id="message_content" rows="4" cols="30" maxlength="300" minlength="10" style="resize: none" > </textarea>
+                                        <textarea name="message_content" id="message_content" rows="4" cols="30" maxlength="255" minlength="10" style="resize: none" > </textarea>
                                     </div>
 
                                     <div class="row_formularza">
@@ -55,13 +60,13 @@
                                     <input type="reset" class="btn btn-danger" id="reset" value="Wyczyść dane formularza">
                                 </div>
 
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
+                                @if (\Illuminate\Support\Facades\Session::has('message'))
+
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ \Illuminate\Support\Facades\Session::get('message') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
                                 @endif
 
@@ -76,26 +81,6 @@
             </div>
 
         </section>
-
-        @auth
-
-            <section class="cars">
-
-                <div class="container">
-
-                    <header>
-                        <h1>Dostępne auta</h1>
-                    </header>
-
-                    <div class="row">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        @endauth
 
     </main>
 

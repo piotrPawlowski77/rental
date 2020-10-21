@@ -28,18 +28,28 @@ class FrontendGateway
         //validate() to metoda Controller-a i musze zaimportowac trait (na poczatku tej klasy jest)
         //ktory umozliwi mi wykonanie metody validate, poniewaz jestem we frontend Gateway
 
-        $regex_rules = array(
-            'email' => array('required', 'regex:/^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/'),
-            'message_content' => array('required', 'regex:/^[a-zA-Z0-9]{10,}$/')
+        //$emailFromDB = $this->fR->getEmailFromContactTable($request);
+
+        //sprawdzenie czy podany adres email istnieje już w bazie
+        if( $this->fR->getEmailFromContactTable($request) != null )
+        {
+            return redirect()->back()->withErrors(['Podany adres email już istnieje w bazie!']);
+        }
+        else
+        {
+            $regex_rules = array(
+                'email' => array('required', 'regex:/^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/'),
+                'message_content' => array('required', 'min:10', 'max:255')
             );
 
-        $this->validate($request, $regex_rules);
+            $this->validate($request, $regex_rules);
 
-        //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
-        //Przekieruje nas na strone gdzie bylismy
+            //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
+            //Przekieruje nas na strone gdzie bylismy
 
-        //walidacja ok
-        return $this->fR->sendContactMessage($request);
+            //walidacja ok
+            return $this->fR->saveContactMessage($request);
+        }
 
     }
 
