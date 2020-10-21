@@ -30,6 +30,10 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"> </script>
 
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
 
@@ -61,6 +65,11 @@
 
     <!--  walidacja formularza kontaktowego jquery -->
     <script src="{{ asset('js/contact_validation.js') }}"></script>
+
+    <!-- Datepicker -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{ asset('js/datepicker.js') }}"></script>
 
 </body>
 </html>
