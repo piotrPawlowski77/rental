@@ -15,7 +15,7 @@
             <div class="col-sm-2">
                 <h5>O nas</h5>
                 <ul>
-                    <li><a href="#">O firmie</a></li>
+                    <li><a href="{{ route('about') }}">O firmie</a></li>
                     <li><a href="{{ route('contact') }}">Kontakt</a></li>
                     <li><a href="#">Opinie</a></li>
                 </ul>

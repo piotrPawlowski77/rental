@@ -37,12 +37,20 @@ class FrontendGateway
         }
         else
         {
-            $regex_rules = array(
+            $rules = array(
                 'email' => array('required', 'regex:/^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/'),
                 'message_content' => array('required', 'min:10', 'max:255')
             );
 
-            $this->validate($request, $regex_rules);
+            $error_messages = array(
+                'email.required' => 'Adres e-mail jest wymagany',
+                'email.regex' => 'Podaj poprawny adres e-mail: użytkownik@serwer.domena',
+                'message_content.required' => 'Treść wiadomości jest wymagana',
+                'message_content.min' => 'Podaj treść wiadomości dłuższą niż 10 znaków',
+                'message_content.max' => 'Podaj treść wiadomości nie dłuższą niż 255 znaków'
+            );
+
+            $this->validate($request, $rules, $error_messages);
 
             //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
             //Przekieruje nas na strone gdzie bylismy

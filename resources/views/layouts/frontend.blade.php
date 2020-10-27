@@ -7,7 +7,7 @@
     zaleznie od szerokosci urzadz. initial-scale=1 = początkowa skala. shrink-to-fit=no = off mechanizm.
     zmniejsz się aby się dopasować -->
 
-    <title>Car Rental</title>
+    <title>Car Rental - frontend</title>
 
     <meta name="description" content="Strona firmy wypozyczalni samochodow">
     <meta name="keywords" content="wypożyczalnia, samochody, wypożyczalnia samochodów">

@@ -31,27 +31,32 @@
                                     <legend> Wprowadź dane </legend>
 
                                     <div class="row_formularza">
-                                        <label>Podaj adres e-mail: <input type="email" name="email" id="email" required> </label>
+                                        <label>Podaj adres e-mail: <input type="email" name="email" id="email" value="{{ old('email') }}"></label>
                                     </div>
 
                                     <div class="row_formularza">
                                         <span id="email_error" class="czerwone"></span>
-                                        @if ($errors->any())
-                                            @foreach ($errors->all() as $error)
-                                                <span id="email_error" class="czerwone">{{ $error }}</span>
-                                            @endforeach
-                                        @endif
                                     </div>
 
                                     <div class="row_formularza">
 
                                         <div><label for="message_content" >Treść wiadomości</label></div>
-                                        <textarea name="message_content" id="message_content" rows="4" cols="30" maxlength="255" minlength="10" style="resize: none" > </textarea>
+                                        <textarea name="message_content" id="message_content" rows="4" cols="30" maxlength="255" minlength="10" value="{{ old('message_content') }}" style="resize: none" > </textarea>
                                     </div>
 
                                     <div class="row_formularza">
                                         <span id="message_content_error" class="czerwone"></span>
                                     </div>
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul class="ul_errors">
+                                            @foreach ($errors->all() as $error)
+                                                <li class="czerwone">{{ $error }} </li>
+                                            @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 
                                 </fieldset>
 

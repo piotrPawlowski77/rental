@@ -2,69 +2,72 @@
 
 @section('content')
 
-    <main>
 
-        <section class="search_interactive">
 
-            <div class="container">
 
-                <a href="#" class="scrollup"></a>
+{{--    <main>--}}
 
-                <header>
-                    <h1>Wyszukaj dostępny samochód</h1>
-                    <p>Skorzystaj z wielu aut dostępnych w naszej wypożyczalni</p>
-                </header>
+{{--        <section class="search_interactive">--}}
 
-                <div class="row">
+{{--            <div class="container">--}}
 
-                    <div class="col-sm-12">
+{{--                <a href="#" class="scrollup"></a>--}}
 
-                        <form action="#">
+{{--                <header>--}}
+{{--                    <h1>Wyszukaj dostępny samochód</h1>--}}
+{{--                    <p>Skorzystaj z wielu aut dostępnych w naszej wypożyczalni</p>--}}
+{{--                </header>--}}
 
-                            <div class="form-group">
-                                <label class="sr-only" for="city">Miasto</label>
-                                <input name="city" value="{{ old('city') }}" type="text" class="form-control autocomplete" id="city" placeholder="Miasto">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="day_in">Data odbioru</label>
-                                <input name="check_in" value="{{ old('check_in') }}" type="text" class="form-control datepicker" id="check_in" placeholder="Data odbioru">
-                            </div>
+{{--                <div class="row">--}}
 
-                            <div class="form-group">
-                                <label class="sr-only" for="day_out">Data zwrotu</label>
-                                <input name="check_out" value="{{ old('check_out') }}" type="text" class="form-control datepicker" id="check_out" placeholder="Data zwrotu">
-                            </div>
+{{--                    <div class="col-sm-12">--}}
 
-                            <button type="submit" class="btn btn-warning">Szukaj w bazie</button>
+{{--                        <form action="#">--}}
 
-                            {{ csrf_field() }}
+{{--                            <div class="form-group">--}}
+{{--                                <label class="sr-only" for="city">Miasto</label>--}}
+{{--                                <input name="city" value="{{ old('city') }}" type="text" class="form-control autocomplete" id="city" placeholder="Miasto">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label class="sr-only" for="day_in">Data odbioru</label>--}}
+{{--                                <input name="check_in" value="{{ old('check_in') }}" type="text" class="form-control datepicker" id="check_in" placeholder="Data odbioru">--}}
+{{--                            </div>--}}
 
-                        </form>
+{{--                            <div class="form-group">--}}
+{{--                                <label class="sr-only" for="day_out">Data zwrotu</label>--}}
+{{--                                <input name="check_out" value="{{ old('check_out') }}" type="text" class="form-control datepicker" id="check_out" placeholder="Data zwrotu">--}}
+{{--                            </div>--}}
 
-                    </div>
+{{--                            <button type="submit" class="btn btn-warning">Szukaj w bazie</button>--}}
 
-                </div>
+{{--                            {{ csrf_field() }}--}}
 
-            </div>
+{{--                        </form>--}}
 
-        </section>
+{{--                    </div>--}}
 
-        <section class="cars">
+{{--                </div>--}}
 
-            <div class="container">
+{{--            </div>--}}
 
-                <header>
-                    <h1>Dostępne auta</h1>
-                </header>
+{{--        </section>--}}
 
-                <div class="row">
+{{--        <section class="cars">--}}
 
-                </div>
+{{--            <div class="container">--}}
 
-            </div>
+{{--                <header>--}}
+{{--                    <h1>Dostępne auta</h1>--}}
+{{--                </header>--}}
 
-        </section>
+{{--                <div class="row">--}}
 
-    </main>
+{{--                </div>--}}
+
+{{--            </div>--}}
+
+{{--        </section>--}}
+
+{{--    </main>--}}
 
 @endsection

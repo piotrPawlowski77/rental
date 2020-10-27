@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.backend')
 
 @section('content')
 
@@ -10,16 +10,6 @@
 
                 <a href="#" class="scrollup"></a>
 
-                <!-- Resetowanie hasla - informacja z sesjii o zresetowaniu hasla -->
-                <div class="col-md-8 text-center">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-
-                        </div>
-                    @endif
-                </div>
-                <!-- END Resetowanie hasla - informacja o zresetowaniu hasla -->
-
                 <header>
                     <h1>Wyszukaj dostępny samochód</h1>
                     <p>Skorzystaj z wielu aut dostępnych w naszej wypożyczalni</p>
@@ -29,19 +19,19 @@
 
                     <div class="col-sm-12">
 
-                        <form class="form_interactive" action="#">
+                        <form action="#">
 
                             <div class="form-group">
                                 <label class="sr-only" for="city">Miasto</label>
                                 <input name="city" value="{{ old('city') }}" type="text" class="form-control autocomplete" id="city" placeholder="Miasto">
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="check_in">Data odbioru</label>
+                                <label class="sr-only" for="day_in">Data odbioru</label>
                                 <input name="check_in" value="{{ old('check_in') }}" type="text" class="form-control datepicker" id="check_in" placeholder="Data odbioru">
                             </div>
 
                             <div class="form-group">
-                                <label class="sr-only" for="check_out">Data zwrotu</label>
+                                <label class="sr-only" for="day_out">Data zwrotu</label>
                                 <input name="check_out" value="{{ old('check_out') }}" type="text" class="form-control datepicker" id="check_out" placeholder="Data zwrotu">
                             </div>
 
@@ -59,25 +49,21 @@
 
         </section>
 
-        @auth
+        <section class="cars">
 
-            <section class="cars">
+            <div class="container">
 
-                <div class="container">
+                <header>
+                    <h1>Dostępne auta</h1>
+                </header>
 
-                    <header>
-                        <h1>Dostępne auta</h1>
-                    </header>
-
-                    <div class="row">
-
-                    </div>
+                <div class="row">
 
                 </div>
 
-            </section>
+            </div>
 
-        @endauth
+        </section>
 
     </main>
 
