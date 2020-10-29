@@ -188,21 +188,53 @@ body > header {
 
 /* -------------------------------------------do BACKENDU -------------------- */
 
-@media (min-width: 768px) .left_sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #efefef;
-    border-right: 1px solid #eeeeee;
+/* stylizacja licznika powiadomien dla koperty */
+.button_mark
+{
+    background-color: #fa3e3e;
+    color: white;
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    bottom: 10px;
+    left: 5px;
 }
 
-.left_sidebar
+.unread_notification {
+    background-color: #dee3ff;
+}
+
+.notification_list > li > a
 {
-    display: none;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.notification_list > li > a:hover, .notification_list > li >a:focus
+{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #4582ec;
+}
+
+.fa-envelope
+{
+    color: white;
+}
+
+.no_a_decoration > a::after
+{
+    color: white;
+}
+
+.no_a_decoration > a
+{
+    text-decoration: none;
 }

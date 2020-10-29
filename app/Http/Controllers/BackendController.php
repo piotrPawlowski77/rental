@@ -31,4 +31,19 @@ class BackendController extends Controller
         return view('backend.profile');
     }
 
+    public function myCars()
+    {
+        return view('backend.my_cars');
+    }
+
+    public function addCar()
+    {
+        return view('backend.add_car');
+    }
+
+    public function cities()
+    {
+        return view('backend.cities');
+    }
+
 }

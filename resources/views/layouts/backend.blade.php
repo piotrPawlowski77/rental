@@ -38,17 +38,7 @@
 <body>
 
     <!--naglowek-->
-    @include('layouts.navbar')
-
-    <div class="container-fluid">
-
-        <div class="row">
-
-
-
-        </div>
-
-    </div>
+    @include('layouts.navbar_admin')
 
     <!--glowny content-->
     @yield('content')

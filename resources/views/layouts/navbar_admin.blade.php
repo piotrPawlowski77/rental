@@ -14,25 +14,48 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('home') }}"> Strona główna </a>
+                    <a class="nav-link active" href="{{ route('adminHome') }}"> Kalendarz rezerwacji </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}"> O firmie </a>
+                    <a class="nav-link" href="{{ route('myCars') }}"> Lista samochodów </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}"> Kontakt </a>
+                    <a class="nav-link" href="{{ route('addCar') }}"> Dodaj samochód </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Opinie </a>
+                    <a class="nav-link" href="{{ route('cities') }}"> Miasta </a>
                 </li>
+
 
             </ul>
 
             <!--Right side of navbar-->
             <ul class="navbar-nav ml-auto">
+
+                <!-- notification envelope -->
+                <li class="nav-item dropdown no_a_decoration">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                        <span id="app-notification-count" class="button_mark">4</span>
+
+                        <span class="fa fa-envelope"></span>
+
+                    </a>
+
+                    <!-- notification list dropdown -->
+                    <ul id="app-notification-list" class="dropdown-menu notification_list">
+                        <li><a href="#"> Lorem ipsum dolor .......... </a></li>
+                        <li><a href="#"> Lorem ipsum dolor2 .......... </a></li>
+                        <li class="unread_notification"><a href="#"> Lorem ipsum dolor3 ......... </a></li>
+                        <li><a href="#"> Lorem ipsum dolor4 .......... </a></li>
+                        <li class="unread_notification"><a href="#"> Lorem ipsum dolor5 ......... </a></li>
+                    </ul>
+
+                </li>
+
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -46,7 +69,7 @@
                 @else
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('adminHome') }}"> Panel administracyjny </a>
+                        <a class="nav-link" href="{{ route('profile') }}"> Twój profil </a>
                     </li>
 
                     <li class="nav-item dropdown">

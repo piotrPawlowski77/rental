@@ -12,7 +12,7 @@
                 <a href="#" class="scrollup"></a>
 
                 <header>
-                    <h1>Kalendarz rezerwacji</h1>
+                    <h1>Dodaj samochód</h1>
                 </header>
 
                 <div class="row">
