@@ -16,19 +16,19 @@ class Reservation extends Model
     //rezerwacja nalezy do jakiegos usera
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 
     //rezerwacja dotyczy jakiegos auta
     public function car()
     {
-        return $this->belongsTo('Car');
+        return $this->belongsTo('App\Models\Car');
     }
 
     //rezerwacja dotyczy jakiegos miasta
     public function city()
     {
-        return $this->belongsTo('City');
+        return $this->belongsTo('App\Models\City');
     }
 
 }

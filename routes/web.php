@@ -25,6 +25,13 @@ Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact
 Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about'])->name('about');
 Route::post('/sendContactMessage', [App\Http\Controllers\FrontendController::class, 'sendContactMessage'])->name('sendContactMessage');
 
+//route do dzialania wyszukiwarki autocomplete na stronie glownej (datepicker.js)
+Route::get('/searchCities', [App\Http\Controllers\FrontendController::class, 'searchCities'])->name('searchCities');
+
+Route::post('/searchCars', [App\Http\Controllers\FrontendController::class, 'searchCars'])->name('searchCars');
+
+//route do wyswietlenia formularza rezerwacji auta (car_reservation.blade.php)
+Route::get('/carReservation/{id}', [App\Http\Controllers\FrontendController::class, 'carReservation'])->name('carReservation');
 
 //route dla panelu admin
 Route::group(['prefix' => 'admin'], function (){

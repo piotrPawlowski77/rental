@@ -47,26 +47,26 @@ class User extends Authenticatable
     //user moze miec 1 lub wiele powiadomien
     public function notifications()
     {
-        return $this->hasMany('Notification');
+        return $this->hasMany('App\Models\Notification');
     }
 
     //user moze miec 1 lub wiele rezerwacji
     public function reservations()
     {
-        return $this->hasMany('Reservation');
+        return $this->hasMany('App\Models\Reservation');
     }
 
     //user moze wystawic 1 lub wiele opinii
     public function opinions()
     {
-        return $this->hasMany('Opinion');
+        return $this->hasMany('App\Models\Opinion');
     }
 
     //relacja z Photo: 1 do wielu (relacja polimorficzna)
     //user moze miec 1 lub wiele zdjec
     public function photos()
     {
-        return $this->morphMany('Photo', 'photoable');
+        return $this->morphMany('App\Models\Photo', 'photoable');
     }
 
 

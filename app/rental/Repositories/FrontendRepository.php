@@ -5,6 +5,7 @@ namespace App\rental\Repositories;
 
 //komunikacja z BD
 
+use App\Models\City;
 use App\Models\Contact;
 use App\rental\Interfaces\FrontendRepositoryInterface;
 
@@ -30,5 +31,17 @@ class FrontendRepository implements FrontendRepositoryInterface
         $contact->save();
 
         return redirect()->back()->with('message', 'Dane wysłano pomyślnie.');
+    }
+
+    //znajduje miasta do autocomplete wyszukiwarki
+    public function getSearchCities(string $term)
+    {
+        return City::where('name', 'LIKE', $term.'%')->get();
+    }
+
+    //znajduje wszystkie auta z danego miasta
+    public function getAllCarsFromCity(string $city)
+    {
+        return City::with(['cars.reservations', 'cars.photos'])->where('name',$city)->first() ?? false;
     }
 }

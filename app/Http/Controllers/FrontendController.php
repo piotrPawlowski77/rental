@@ -15,13 +15,13 @@ class FrontendController extends Controller
     public function __construct(FrontendRepositoryInterface $fR, FrontendGateway $fG)
     {
         //mamy widoczne repozytorium i gateway we wszystkich metodach tej klasy
+        //robie tak bo prawie kazda metoda tutaj bedzie korzystac z tych wzorcow
         $this->fR = $fR;
         $this->fG = $fG;
     }
 
     public function index()
     {
-
         return view('frontend.index');
     }
 
@@ -41,11 +41,39 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
-
     public function about()
     {
         return view('frontend.about');
     }
 
+    public function searchCities(Request $request)
+    {
+        //lista wszystkich miast
+        $result = $this->fG->searchCities($request);
+
+        return response()->json($result);
+    }
+
+    public function searchCars(Request $request)
+    {
+
+        if($city = $this->fG->getSearchResults($request))
+        {
+            //dd($city);
+
+            return view('frontend.car_search', compact('city'));
+        }
+        else
+        {
+            return redirect('/')->with('message', 'Nie znaleziono ofert dla podanych kryteriów.');
+        }
+
+
+    }
+
+    public function carReservation()
+    {
+
+    }
 
 }

@@ -33,9 +33,14 @@
     <!-- Datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+
+    <!-- wyszukiwarka autocomplete na stronie glownej -->
+    <script>
+        //przypisuje bazowy adres url aplikacji
+        var b_url = '{{ url('/') }}';
+    </script>
 
 
 </head>

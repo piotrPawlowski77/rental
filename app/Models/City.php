@@ -16,13 +16,13 @@ class City extends Model
     //dane miasto posiada 1 lub wiele aut
     public function cars()
     {
-        return $this->hasMany('Car');
+        return $this->hasMany('App\Models\Car');
     }
 
     //dane miasto posiada 1 lub wiele rezerwacji
     public function reservations()
     {
-        return $this->hasMany('Reservation');
+        return $this->hasMany('App\Models\Reservation');
     }
 
 }

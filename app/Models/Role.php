@@ -14,7 +14,7 @@ class Role extends Model
     //rola nalezy do jakiegos usera
     public function users()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 
 }

@@ -16,14 +16,20 @@ class Car extends Model
     //samochod nalezy do jakiegos miasta
     public function city()
     {
-        return $this->belongsTo('City');
+        return $this->belongsTo('App\Models\City');
+    }
+
+    //samochod moze posiadac 1 lub wiele rezerwacji
+    public function reservations()
+    {
+        return $this->hasMany('App\Models\Reservation');
     }
 
     //relacja z Photo: 1 do wielu (relacja polimorficzna)
     //auto moze miec 1 lub wiele zdjec
     public function photos()
     {
-        return $this->morphMany('Photo', 'photoable');
+        return $this->morphMany('App\Models\Photo', 'photoable');
     }
 
 

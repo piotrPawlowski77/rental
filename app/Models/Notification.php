@@ -19,7 +19,7 @@ class Notification extends Model
     //powiadomienie nalezy do jakiegos usera
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 
 }

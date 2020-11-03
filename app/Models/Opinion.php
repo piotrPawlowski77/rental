@@ -16,7 +16,7 @@ class Opinion extends Model
     //opinia nalezy do jakiegos usera
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 
 }

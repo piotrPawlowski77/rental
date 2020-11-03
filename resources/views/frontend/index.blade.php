@@ -11,14 +11,24 @@
                 <a href="#" class="scrollup"></a>
 
                 <!-- Resetowanie hasla - informacja z sesjii o zresetowaniu hasla -->
-                <div class="col-md-8 text-center">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-
+                @if (session('status'))
+                    <div class="row">
+                        <div class="alert alert-success col-sm-12 text-center" role="alert">
+                            <p>Hasło zostało zresetowane</p>
                         </div>
-                    @endif
-                </div>
+                    </div>
+                @endif
                 <!-- END Resetowanie hasla - informacja o zresetowaniu hasla -->
+
+                <!-- Informacja z sesjii o braku aut do rezerwacji -->
+                @if(session('message'))
+                    <div class="row">
+                        <div class="alert alert-danger col-sm-12 text-center" role="alert">
+                            <p>{{ session('message') }}</p>
+                        </div>
+                    </div>
+                @endif
+
 
                 <header>
                     <h1>Wyszukaj dostępny samochód</h1>
@@ -29,7 +39,7 @@
 
                     <div class="col-sm-12">
 
-                        <form class="form_interactive" action="#">
+                        <form method="post" class="form_interactive" action="{{ route('searchCars') }}">
 
                             <div class="form-group">
                                 <label class="sr-only" for="city">Miasto</label>
