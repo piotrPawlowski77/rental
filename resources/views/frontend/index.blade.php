@@ -55,6 +55,16 @@
                                 <input name="check_out" value="{{ old('check_out') }}" type="text" class="form-control datepicker" id="check_out" placeholder="Data zwrotu">
                             </div>
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="ul_errors">
+                                        @foreach ($errors->all() as $error)
+                                            <li class="czerwone">{{ $error }} </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <button type="submit" class="btn btn-warning">Szukaj w bazie</button>
 
                             {{ csrf_field() }}

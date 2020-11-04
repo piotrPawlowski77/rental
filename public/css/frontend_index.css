@@ -191,4 +191,11 @@ body > header {
 {
     padding: 10px;
     color: black;
+    overflow: hidden;
+}
+
+.img-thumbnail
+{
+    background-color: #CAC5C4;
+    margin-bottom: 20px;
 }

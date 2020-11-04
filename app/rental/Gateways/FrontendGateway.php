@@ -81,6 +81,44 @@ class FrontendGateway
 
     }
 
+    public function validateFormInput($request)
+    {
+        //jesli pola z formularza wyszukiwarki aut nie sa puste
+        if($request->input('city') != null && $request->input('check_in') != null && $request->input('check_out') != null)
+        {
+
+            //walidacja danych
+            $rules = array(
+                'city' => array('required', 'string'),
+                'check_in' => array('required', 'date_format:Y-m-d', 'after_or_equal:today'),
+                'check_out' => array('required', 'date_format:Y-m-d', 'after:check_in')
+            );
+
+            $error_messages = array(
+                'city.required' => 'Pole miasta jest wymagane',
+                'city.string' => 'Pole miasta musi być tekstem',
+
+                'check_in.required' => 'Data odbioru jest wymagana',
+                'check_in.date_format' => 'Data odbioru wymaga poprawnego formatu: Rok-miesiąc-dzień',
+                'check_in.after_or_equal' => 'Data odbioru musi być równa bądź większa od dzisiejszego dnia',
+
+                'check_out.required' => 'Data zwrotu jest wymagana',
+                'check_out.date_format' => 'Data zwrotu wymaga poprawnego formatu: Rok-miesiąc-dzień',
+                'check_out.after' => 'Data zwrotu musi być większa od daty odbioru',
+
+            );
+
+            //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
+            $this->validate($request, $rules, $error_messages);
+
+            return true;
+        }
+
+        //walidacja inputow nie przebiegla pomyslnie
+        return false;
+
+    }
+
     public function getSearchResults($request)
     {
         //to co tu laravel zrobi to do sesji zapisze aktualne wartosci ktore wpisze do formularza
@@ -88,10 +126,12 @@ class FrontendGateway
         //zmienna sesji jest ustawiona tylko na 1 raz. (po nacisniesiu strony glownej lub odswiezeniu strony wartosc z pola zniknie)
         $request->flash();
 
-        //tu bd przetwarzac dane w BD tylko wtedy gdy miasto NIE JEST PUSTE, tzn gdy ktos
-        //kliknie szukaj bez wpisania nazwy miasta to zapytanie nie wykonam
-        if($request->input('city') != null)
+        //tu bd przetwarzac dane w BD tylko wtedy gdy pola w formularzu NIE SA PUSTE, tzn gdy ktos
+        //kliknie szukaj bez wpisania nazwy miasta, daty wypozyczenia i daty zwrotu to zapytanie nie wykonam
+        //oraz wstepna walidacje pol inputow z formularza (czy daty poprawnego formatu itp)
+        if($checkIsOk = $this->validateFormInput($request))
         {
+
             //w tym miejscu uzyskam wszystkie auta z konkretnego miasta - wczytujac modele zalezne
             $allCarsInCity = $this->fR->getAllCarsFromCity($request->input('city'));
 
