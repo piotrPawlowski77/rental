@@ -21,7 +21,7 @@ class PhotosTableSeeder extends Seeder
         for($i =1; $i<=10; $i++)
         {
             DB::table('photos')->insert([
-                'photoable_type' => 'App\User',
+                'photoable_type' => 'App\Models\User',
                 'photoable_id' => $faker->unique()->numberBetween(1,10),
                 'path' => $faker->imageUrl(275,150,'people'), //wykorzystuje lorempixel
             ]);
@@ -32,7 +32,7 @@ class PhotosTableSeeder extends Seeder
         for($i =1; $i<=40; $i++)
         {
             DB::table('photos')->insert([
-                'photoable_type' => 'App\Car',
+                'photoable_type' => 'App\Models\Car',
                 'photoable_id' => $faker->numberBetween(1,10),
                 'path' => $faker->imageUrl(800,400,'transport'),
                 //wykorzystuje lorempixel

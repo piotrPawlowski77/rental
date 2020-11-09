@@ -27,15 +27,15 @@
                                     <img class="img-fluid" src="{{ $car->photos->first()->path ?? $imgTmp }}" alt="#">
 
                                     <div class="car_details">
-                                        <h3>{{ $car->brand }} {{ $car->model }}</h3>
-                                        <p>{{ $car->type }}</p>
-                                        <p>{{ $car->engine }}</p>
-                                        <p>{{ $car->fuel_type }}</p>
-                                        <p>{{ $car->color }}</p>
-                                        <p>{{ $car->power }}</p>
-                                        <p>{{ $car->price }}</p>
-                                        <p>{{ $car->status }}</p>
-                                        <p> <a href="#" role="button" class="btn btn-success">Zarezerwuj</a> </p>
+                                        <h3>Marka: {{ $car->brand }} Model: {{ $car->model }}</h3>
+                                        <p>Typ nadwozia: {{ $car->type }}</p>
+                                        <p>Silnik: {{ $car->engine }}</p>
+                                        <p>Rodzaj paliwa: {{ $car->fuel_type }}</p>
+                                        <p>Kolor: {{ $car->color }}</p>
+                                        <p>Moc: {{ $car->power }} km</p>
+                                        <p>Cena za dzień: {{ $car->price }} zł</p>
+                                        <p>Status: {{ $car->status }}</p>
+                                        <p> <a href="{{ route('carReservation', ['id' => $car->id]) }}" role="button" class="btn btn-success">Zarezerwuj</a> </p>
                                     </div>
 
                                 </div>

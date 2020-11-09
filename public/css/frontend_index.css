@@ -199,3 +199,16 @@ body > header {
     background-color: #CAC5C4;
     margin-bottom: 20px;
 }
+
+/* tabela na car_reservation_blade */
+.table
+{
+    color: white;
+}
+
+/* datepicker na car_reservation_blade. Styl wyswietli na czerwono niedostepny dzien */
+.niedostepny_dzien
+{
+    text-decoration: line-through;
+    background-color: red;
+}

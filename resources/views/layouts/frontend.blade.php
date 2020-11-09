@@ -76,5 +76,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{ asset('js/datepicker.js') }}"></script>
 
+    <!-- Dołączenie skryptu wyświetlającego dni przekreślone w datepicker w frontend\car_reservation.blade.php -->
+    @stack('car_avaiable_dates_script')
+
 </body>
 </html>

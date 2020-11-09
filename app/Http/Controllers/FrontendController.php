@@ -71,9 +71,24 @@ class FrontendController extends Controller
 
     }
 
-    public function carReservation()
+    public function getCarReservationByAjax($car_id)
     {
+        //wyciaga rezerwacje dla konkretnego auta
+        $carReservations = $this->fR->getCarReservationsById($car_id);
 
+
+        return response()->json(['carReservations' => $carReservations]);
+
+    }
+
+    public function carReservation($car_id)
+    {
+        //wyciagnij konkretny samochod z konkretnego miasta
+        $car = $this->fR->getCar($car_id);
+
+        //dd($car);
+
+        return view('frontend.car_reservation', compact('car'));
     }
 
 }

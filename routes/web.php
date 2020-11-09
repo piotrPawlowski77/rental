@@ -33,6 +33,9 @@ Route::post('/searchCars', [App\Http\Controllers\FrontendController::class, 'sea
 //route do wyswietlenia formularza rezerwacji auta (car_reservation.blade.php)
 Route::get('/carReservation/{id}', [App\Http\Controllers\FrontendController::class, 'carReservation'])->name('carReservation');
 
+//route do wyswietlenia datepickera z datami rezerwacjami danego auta {id auta}(car_reservation.blade.php)
+Route::get('/getCarReservationByAjax/{id}', [App\Http\Controllers\FrontendController::class, 'getCarReservationByAjax'])->name('getCarReservationByAjax');
+
 //route dla panelu admin
 Route::group(['prefix' => 'admin'], function (){
 
