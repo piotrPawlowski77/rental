@@ -195,4 +195,31 @@ class FrontendGateway
         return false;
     }
 
+    public function addOpinion($request)
+    {
+
+        $rules = array(
+            'content' => array('required', 'string', 'min:10', 'max:255'),
+            'rating' => array('required', 'min:1', 'max:5')
+        );
+
+        $error_messages = array(
+            'content.required' => 'Opinia jest wymagana',
+            'content.string' => 'Opinia musi być tekstem',
+            'content.min' => 'Opinia musi być dłuższa niż 10 znaków',
+            'content.max' => 'Opinia musi być krótsza niż 255 znaków',
+            'rating.required' => 'Ocena jest wymagana',
+            'rating.min' => 'Ocena musi przyjmować wartość minimum 1',
+            'rating.max' => 'Ocena musi przyjmować wartość maksimum 5'
+        );
+
+        $this->validate($request, $rules, $error_messages);
+
+        //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
+        //Przekieruje nas na strone gdzie bylismy
+
+        //walidacja ok
+        return $this->fR->addOpinion($request);
+    }
+
 }

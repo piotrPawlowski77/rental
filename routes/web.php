@@ -36,6 +36,11 @@ Route::get('/carReservation/{id}', [App\Http\Controllers\FrontendController::cla
 //route do wyswietlenia datepickera z datami rezerwacjami danego auta {id auta}(car_reservation.blade.php)
 Route::get('/getCarReservationByAjax/{id}', [App\Http\Controllers\FrontendController::class, 'getCarReservationByAjax'])->name('getCarReservationByAjax');
 
+//route do opinii o serwisie (frontend)
+Route::get('/opinions', [App\Http\Controllers\FrontendController::class, 'opinions'])->name('opinions');
+//route do dodania opinii o serwisie (frontend)
+Route::post('/addOpinion', [App\Http\Controllers\FrontendController::class, 'addOpinion'])->name('addOpinion');
+
 //route dla panelu admin
 Route::group(['prefix' => 'admin'], function (){
 

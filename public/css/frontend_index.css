@@ -212,3 +212,34 @@ body > header {
     text-decoration: line-through;
     background-color: red;
 }
+
+.form_reservation
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#car_avaiability_calendar
+{
+    display: inline-block;
+}
+
+.media_conf
+{
+    /*display: inline-block;*/
+    width: 100%;
+    padding: 20px;
+}
+
+/* opinion blade wysrodkowanie alert */
+.alert_style
+{
+    width: 100%;
+}
+
+/* stylizacja formularza dodajacego opinie */
+#collapseOpinion
+{
+    text-align: left;
+    padding-left: 0 !important;
+}

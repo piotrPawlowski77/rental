@@ -14,6 +14,10 @@ class FrontendController extends Controller
      */
     public function __construct(FrontendRepositoryInterface $fR, FrontendGateway $fG)
     {
+        //w only(tablica z nazwami metod ktore chce zabezpieczyc przed logowaniem - czynie to zamiast robic rout-y w web.php - jest to inna metoda)
+        //$this->middleware('auth')->only(['addOpinion', 'createCarReservation']);
+        $this->middleware('auth')->only(['addOpinion']);
+
         //mamy widoczne repozytorium i gateway we wszystkich metodach tej klasy
         //robie tak bo prawie kazda metoda tutaj bedzie korzystac z tych wzorcow
         $this->fR = $fR;
@@ -89,6 +93,24 @@ class FrontendController extends Controller
         //dd($car);
 
         return view('frontend.car_reservation', compact('car'));
+    }
+
+    public function opinions()
+    {
+        //wyciagnij wszystkie opinie od uzytkownikow
+        $opinions = $this->fR->getOpinions();
+
+        //dd($opinions);
+
+        return view('frontend.opinion', compact('opinions'));
+    }
+
+    public function addOpinion(Request $request)
+    {
+        //najpierw zwaliduj formularz - a potem z gatewaya polacz sie z repozytorium
+        $this->fG->addOpinion($request);
+
+        return redirect()->back();
     }
 
 }

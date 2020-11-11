@@ -106,7 +106,7 @@
 
                         <div class="col-sm-12">
 
-                            <form method="post" class="form_interactive" action="#">
+                            <form method="post" class="form_interactive form_reservation" action="#">
 
                                 <div class="form-group">
                                     <label class="sr-only" for="check_in">Data odbioru</label>

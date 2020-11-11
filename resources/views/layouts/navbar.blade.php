@@ -26,7 +26,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Opinie </a>
+                    <a class="nav-link" href="{{ route('opinions') }}"> Opinie </a>
                 </li>
 
             </ul>

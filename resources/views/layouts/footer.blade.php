@@ -17,7 +17,7 @@
                 <ul>
                     <li><a href="{{ route('about') }}">O firmie</a></li>
                     <li><a href="{{ route('contact') }}">Kontakt</a></li>
-                    <li><a href="#">Opinie</a></li>
+                    <li><a href="{{ route('opinions') }}">Opinie</a></li>
                 </ul>
             </div>
             <div class="col-sm-2">
@@ -39,6 +39,6 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <p> &copy; 2019 Wszelkie prawa zastrzeżone </p>
+        <p> &copy; 2020 Wszelkie prawa zastrzeżone </p>
     </div>
 </footer>

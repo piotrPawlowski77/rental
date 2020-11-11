@@ -8,7 +8,9 @@ namespace App\rental\Repositories;
 use App\Models\Car;
 use App\Models\City;
 use App\Models\Contact;
+use App\Models\Opinion;
 use App\Models\Reservation;
+use App\Models\User;
 use App\rental\Interfaces\FrontendRepositoryInterface;
 
 class FrontendRepository implements FrontendRepositoryInterface
@@ -56,5 +58,26 @@ class FrontendRepository implements FrontendRepositoryInterface
     public function getCarReservationsById($car_id)
     {
         return Reservation::where('car_id', $car_id)->get();
+    }
+
+    //znajduje opinie
+    public function getOpinions()
+    {
+        return Opinion::with('user')->get();
+    }
+
+    //dodaje opinie do bd
+    public function addOpinion($request)
+    {
+        //Tworze instancje opinii
+        $opinion = new Opinion();
+
+        $opinion->content = $request->input('content');
+        $opinion->rating = $request->input('rating');
+        $opinion->user_id = $request->user()->id;
+
+        $opinion->save();
+
+        return redirect()->back()->with('message', 'Dane wysłano pomyślnie.');
     }
 }
