@@ -106,16 +106,16 @@
 
                         <div class="col-sm-12">
 
-                            <form method="post" class="form_interactive form_reservation" action="#">
+                            <form method="post" action="{{ route('addReservation', ['car_id'=>$car->id, 'city_id'=>$car->city_id]) }}" class="form_interactive form_reservation">
 
                                 <div class="form-group">
                                     <label class="sr-only" for="check_in">Data odbioru</label>
-                                    <input name="check_in" type="text" class="form-control" id="check_in" placeholder="Data odbioru" disabled>
+                                    <input name="check_in" type="text" class="form-control" id="check_in" placeholder="Data odbioru" >
                                 </div>
 
                                 <div class="form-group">
                                     <label class="sr-only" for="check_out">Data zwrotu</label>
-                                    <input name="check_out" type="text" class="form-control" id="check_out" placeholder="Data zwrotu" disabled>
+                                    <input name="check_out" type="text" class="form-control" id="check_out" placeholder="Data zwrotu" >
                                 </div>
 
                                 @if ($errors->any())
@@ -129,6 +129,8 @@
                                 @endif
 
                                 <button type="submit" class="btn btn-success">Zarezerwuj</button>
+
+                                <p class="text-danger">{{ \Illuminate\Support\Facades\Session::get('resMessage') }}</p>
 
                                 {{ csrf_field() }}
 

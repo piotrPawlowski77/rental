@@ -15,8 +15,7 @@ class FrontendController extends Controller
     public function __construct(FrontendRepositoryInterface $fR, FrontendGateway $fG)
     {
         //w only(tablica z nazwami metod ktore chce zabezpieczyc przed logowaniem - czynie to zamiast robic rout-y w web.php - jest to inna metoda)
-        //$this->middleware('auth')->only(['addOpinion', 'createCarReservation']);
-        $this->middleware('auth')->only(['addOpinion']);
+        $this->middleware('auth')->only(['addOpinion', 'addReservation']);
 
         //mamy widoczne repozytorium i gateway we wszystkich metodach tej klasy
         //robie tak bo prawie kazda metoda tutaj bedzie korzystac z tych wzorcow
@@ -111,6 +110,31 @@ class FrontendController extends Controller
         $this->fG->addOpinion($request);
 
         return redirect()->back();
+    }
+
+    public function addReservation($car_id, $city_id, Request $request)
+    {
+        //czy moge dokonac rezerwacji: true/false
+        $isReservationAvaiable = $this->fG->checkAvaiableReservations($car_id, $request);
+
+        //dd($isReservationAvaiable);
+
+        if($isReservationAvaiable)
+        {
+            //add reservation - formularz juz zwalidowany we FG
+            //wiec moge dokonac rezerwacji
+            $reservation = $this->fR->makeReservation($car_id, $city_id,$request);
+
+            //rezerwacja ok - redirect to admin panel
+            return redirect()->route('adminHome');
+        }
+        else
+        {
+            //redirect
+            //zmienna z komunikatem w sesji dostepna tylko na nastepny request.
+            $request->session()->flash('resMessage', 'Brak wolnych terminów.');
+            return redirect()->route('carReservation', ['id'=>$car_id]);
+        }
     }
 
 }

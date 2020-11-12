@@ -80,4 +80,20 @@ class FrontendRepository implements FrontendRepositoryInterface
 
         return redirect()->back()->with('message', 'Dane wysłano pomyślnie.');
     }
+
+    //dodaje rezerwacje do BD
+    public function makeReservation($car_id, $city_id,$request)
+    {
+        //Tworze instancje rezerwacji
+        $reservation = new Reservation();
+
+        $reservation->rental_day_in = $request->input('check_in');
+        $reservation->rental_day_out = $request->input('check_out');
+        $reservation->status = 0;
+        $reservation->user_id = $request->user()->id;
+        $reservation->city_id = $city_id;
+        $reservation->car_id = $car_id;
+
+        $reservation->save();
+    }
 }

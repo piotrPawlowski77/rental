@@ -222,4 +222,86 @@ class FrontendGateway
         return $this->fR->addOpinion($request);
     }
 
+    public function validateFormReservationInput($request)
+    {
+
+        //jesli pola z formularza rezerwacji aut nie sa puste
+        if($request->input('check_in') != null && $request->input('check_out') != null)
+        {
+
+            //walidacja danych
+            $rules = array(
+                'check_in' => array('required', 'date_format:Y-m-d', 'after_or_equal:today'),
+                'check_out' => array('required', 'date_format:Y-m-d', 'after:check_in')
+            );
+
+            $error_messages = array(
+                'check_in.required' => 'Data odbioru jest wymagana',
+                'check_in.date_format' => 'Data odbioru wymaga poprawnego formatu: Rok-miesiąc-dzień',
+                'check_in.after_or_equal' => 'Data odbioru musi być równa bądź większa od dzisiejszego dnia',
+
+                'check_out.required' => 'Data zwrotu jest wymagana',
+                'check_out.date_format' => 'Data zwrotu wymaga poprawnego formatu: Rok-miesiąc-dzień',
+                'check_out.after' => 'Data zwrotu musi być większa od daty odbioru',
+
+            );
+
+            //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
+            $this->validate($request, $rules, $error_messages);
+
+            return true;
+        }
+
+        //walidacja inputow nie przebiegla pomyslnie
+        return false;
+    }
+
+    public function checkAvaiableReservations($car_id, $request)
+    {
+
+        //dd('kest');
+
+        //tu sprawdze walidacje inputow z formularza - jesli true - walidacja OK
+        if($checkIsOk = $this->validateFormReservationInput($request))
+        {
+
+
+            //pobieram z BD rezerwacje dla car_id (korzystam z metody z repo ktora zrobilem wczesniej - getCarReservationsById($car_id))
+            $reservations = $this->fR->getCarReservationsById($car_id);
+
+            $isResAvaiable = true;
+
+            foreach ($reservations as $reservation)
+            {
+                //jesli data odbioru wejde w przedzial rezerwacji auta - nie moge go zarezerwowac
+                if($request->input('check_in') >= $reservation->rental_day_in
+                && $request->input('check_in') <= $reservation->rental_day_out)
+                {
+                    $isResAvaiable = false;
+                    break;
+                }
+                //jesli data zwrotu wejde w przedzial rezerwacji auta - nie moge go zarezerwowac
+                elseif ($request->input('check_out') >= $reservation->rental_day_in
+                    && $request->input('check_out') <= $reservation->rental_day_out)
+                {
+                    $isResAvaiable = false;
+                    break;
+                }
+                //jesli mamy check_in = 1 pazdziernik a check_out = 15 a w BD 5-10 pazdziernik -obejme przedzial - nie moge go zarezerwowac
+                elseif ($request->input('check_in') <= $reservation->rental_day_in
+                    && $request->input('check_out') >= $reservation->rental_day_out)
+                {
+                    $isResAvaiable = false;
+                    break;
+                }
+            }
+
+            return $isResAvaiable;
+        }
+
+        //zwracam false. Nie dotykam BD
+        return false;
+
+    }
+
 }
