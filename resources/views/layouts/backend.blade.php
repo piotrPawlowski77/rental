@@ -33,6 +33,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
 
+    <!--  -->
+    <script>
+        //przypisuje bazowy adres url aplikacji
+        var b_url = '{{ url('/admin') }}';
+    </script>
+
 
 </head>
 <body>
@@ -63,6 +69,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{ asset('js/datepicker.js') }}"></script>
+
+    <!-- Skrypt JS generujacyu kalendarz z rezerwacja danego auta w admin panel (index.blade.php) -->
+    @stack('generate_reservation_calendar_script')
 
 </body>
 </html>

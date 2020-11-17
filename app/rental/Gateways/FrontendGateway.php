@@ -258,9 +258,6 @@ class FrontendGateway
 
     public function checkAvaiableReservations($car_id, $request)
     {
-
-        //dd('kest');
-
         //tu sprawdze walidacje inputow z formularza - jesli true - walidacja OK
         if($checkIsOk = $this->validateFormReservationInput($request))
         {

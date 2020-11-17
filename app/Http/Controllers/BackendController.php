@@ -19,11 +19,17 @@ class BackendController extends Controller
         //mamy widoczne repozytorium i gateway w all metodach tej klasy
         $this->bR = $bR;
         $this->bG = $bG;
+
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('backend.index');
+        //zmienna zawiera wszystkie samochody z rezerwacjami
+        $cars = $this->bG->getReservations($request);
+
+//        dd($cars);
+
+        return view('backend.index', compact('cars'));
     }
 
     public function profile()

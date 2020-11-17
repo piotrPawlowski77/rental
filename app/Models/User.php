@@ -13,6 +13,8 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use  UserPresenter; //to jest import trait user presenter
 
+    public static $roles = [];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -70,6 +72,38 @@ class User extends Authenticatable
     {
         return $this->morphMany('App\Models\Photo', 'photoable');
     }
+
+    //kazdy user ma 1 role admin lub client
+    public function role()
+    {
+        return $this->hasOne('App\Models\Role');
+    }
+
+    public function hasRole(array $roles)
+    {
+        foreach ($roles as $role)
+        {
+            //jesli w tab statycznej $roles istnieje rola jak w tab metody hasRole w BG. self to odwolanie do zm statycznej
+            if(isset(self::$roles[$role]))
+            {
+                //jesli rola istnieje - przewrwij skrypt
+                if(self::$roles[$role])
+                    return true;
+            }
+            else
+            {
+                //jesli rola nie jest ustawiona w tab statycznej - zapisz role do zm statycznej => potrzebna relacja role()
+                self::$roles[$role] = $this->role()->where('role_name', $role)->exists();
+
+                //jesli rola istnieje - przewrwij skrypt
+                if(self::$roles[$role])
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
 
 
 }
