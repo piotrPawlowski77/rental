@@ -6,6 +6,7 @@ namespace App\rental\Repositories;
 //komunikacja z BD
 
 use App\Models\Car;
+use App\Models\Reservation;
 use App\rental\Interfaces\BackendRepositoryInterface;
 
 class BackendRepository implements BackendRepositoryInterface
@@ -61,6 +62,25 @@ class BackendRepository implements BackendRepositoryInterface
             })
             ->get();
 
+    }
+
+    //metoda z traitu AjaxRequests - zwraca dane 1 rezerwacji
+    public function getReservationData($request)
+    {
+        //id samochodu odpowiada id z requestu ktory znajdzie sie
+        //w {} (admin_scripts)
+
+        //znajdz taka rezerwacje gdzie id auta jest = id auta z requestu
+        //i kliknieta data w kalendarzu zawiera sie w przedziale tej rezerwacji
+        //tylko 1 przypadek mozliwy
+
+
+
+        return Reservation::with('user', 'car')
+            ->where('car_id', $request->input('car_id'))
+            ->where('rental_day_in', '<=', $request->input('date'))
+            ->where('rental_day_out', '>=', $request->input('date'))
+            ->first();
     }
 
 }

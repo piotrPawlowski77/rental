@@ -238,3 +238,20 @@ body > header {
 {
     text-decoration: none;
 }
+
+/* kalendarz rezerwacji admin panel */
+.rezerw_potwierdzona
+{
+    background-color: green !important;
+}
+
+.rezerw_niepotwierdzona
+{
+    background-color: red !important;
+}
+
+/* stylizacja tabeli danych admin panel  */
+.table
+{
+    color: white;
+}

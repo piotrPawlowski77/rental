@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\rental\Gateways\BackendGateway;
 use App\rental\Interfaces\BackendRepositoryInterface;
+use App\rental\Traits\AjaxRequests;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller
 {
+
+    use AjaxRequests; //oddzielenie kodu z requestami ajax
 
     /**
      * BackendController constructor.
@@ -50,6 +53,16 @@ class BackendController extends Controller
     public function cities()
     {
         return view('backend.cities');
+    }
+
+    public function confirmReservation($id)
+    {
+        return 'to do';
+    }
+
+    public function deleteReservation($id)
+    {
+        return 'to do';
     }
 
 }

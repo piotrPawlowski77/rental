@@ -68,7 +68,10 @@
     <!-- Datepicker -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="{{ asset('js/datepicker.js') }}"></script>
+    <script src="{{ asset('js/datepicker_admin.js') }}"></script>
+
+    <!-- Skrypty obslugujace kalendarze rezerwacji w panelu admina -->
+    <script src="{{ asset('js/admin_scripts.js') }}"></script>
 
     <!-- Skrypt JS generujacyu kalendarz z rezerwacja danego auta w admin panel (index.blade.php) -->
     @stack('generate_reservation_calendar_script')

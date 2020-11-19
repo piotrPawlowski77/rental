@@ -54,4 +54,14 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::match(['GET', 'POST'],'/profile', [\App\Http\Controllers\BackendController::class, 'profile'])->name('profile');
 
+    //route do kalendarz rezerwacji - requesty ajax-owe
+    Route::get('/getReservationDataFromDbByAjax', [\App\Http\Controllers\BackendController::class, 'getReservationDataFromDbByAjax'])->name('getReservationDataFromDbByAjax');
+
+    //route do potwierdzania rezerwacji
+    Route::get('/confirmReservation/{id}', [\App\Http\Controllers\BackendController::class, 'confirmReservation'])->name('confirmReservation');
+
+    //route do usowania rezerwacji
+    Route::get('/deleteReservation/{id}', [\App\Http\Controllers\BackendController::class, 'deleteReservation'])->name('deleteReservation');
+
+
 });
