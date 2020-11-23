@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin'], function (){
     //route do potwierdzania rezerwacji
     Route::get('/confirmReservation/{id}', [\App\Http\Controllers\BackendController::class, 'confirmReservation'])->name('confirmReservation');
 
-    //route do usowania rezerwacji
+    //route do usuwania rezerwacji
     Route::get('/deleteReservation/{id}', [\App\Http\Controllers\BackendController::class, 'deleteReservation'])->name('deleteReservation');
 
 

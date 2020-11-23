@@ -11,8 +11,23 @@
 
                 <a href="#" class="scrollup"></a>
 
+                <!-- Informacja z sesjii o komunikatach -->
+                @if(\Illuminate\Support\Facades\Session::has('message'))
+                    <div class="row">
+                        <div class="alert alert-info alert-dismissible fade show col-sm-12 text-center" role="alert">
+
+                            <p>{{ \Illuminate\Support\Facades\Session::get('message') }}</p>
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                    </div>
+                @endif
+
                 <header>
-                    <h1>Kalendarz rezerwacji</h1>
+                    <h1>Twoje rezerwacje</h1>
                 </header>
 
                 <div class="row">
@@ -99,7 +114,7 @@
                             </div>
 
                             <!-- Dane rezerwacji -->
-                            <div class="col-md-9">
+                            <div class="col-md-9 mt-3">
                                 <div class="reservationData{{ $c }}" style="display: none;">
 
                                     <div class="table-responsive">
@@ -126,9 +141,9 @@
                                                     <td class="reservationData_day_out"></td>
                                                     <td class="reservationData_person" ></td>
                                                     @if( \Illuminate\Support\Facades\Auth::user()->hasRole(['admin']) )
-                                                        <td><a href="#" class="btn btn-primary reservationData_confirm_reservation keep_pos">Potwierdź rezerwację</a></td>
+                                                        <td><a href="#" class="btn btn-primary reservationData_confirm_reservation">Potwierdź rezerwację</a></td>
                                                     @endif
-                                                    <td><a class=" btn btn-primary reservatioData_delete_reservation keep_pos" href="#">Usuń rezerwację</a></td>
+                                                    <td><a class=" btn btn-primary reservatioData_delete_reservation" href="#">Usuń rezerwację</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>

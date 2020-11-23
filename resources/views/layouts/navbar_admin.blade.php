@@ -14,21 +14,22 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('adminHome') }}"> Kalendarz rezerwacji </a>
+                    <a class="nav-link active" href="{{ route('adminHome') }}"> Twoje rezerwacje </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('myCars') }}"> Lista samochodów </a>
-                </li>
+                @if(\Illuminate\Support\Facades\Auth::user()->hasRole(['admin']))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('myCars') }}"> Lista samochodów </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('addCar') }}"> Dodaj samochód </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('addCar') }}"> Dodaj samochód </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cities') }}"> Miasta </a>
-                </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cities') }}"> Miasta </a>
+                    </li>
+                @endif
 
             </ul>
 
@@ -75,7 +76,7 @@
                     <li class="nav-item dropdown">
 
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->FullName }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

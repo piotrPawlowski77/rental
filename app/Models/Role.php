@@ -9,6 +9,8 @@ class Role extends Model
 {
     use HasFactory;
 
+    public $timestamps=false;
+
     protected $fillable = ['user_id', 'role_name'];
 
     //rola nalezy do jakiegos usera

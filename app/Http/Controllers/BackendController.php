@@ -17,7 +17,7 @@ class BackendController extends Controller
      */
     public function __construct(BackendRepositoryInterface $bR, BackendGateway $bG)
     {
-
+        $this->middleware('CheckAdmin')->only(['myCars', 'addCar', 'cities', 'confirmReservation']);
 
         //mamy widoczne repozytorium i gateway w all metodach tej klasy
         $this->bR = $bR;
@@ -57,12 +57,31 @@ class BackendController extends Controller
 
     public function confirmReservation($id)
     {
-        return 'to do';
+        $reservation = $this->bR->getReservation($id);
+
+        //jesli authorize nie przejdzie to kod ponizej NIE ZOSTANIE WYKONANY
+        //rezerwacja nie zostanie potwierdzona.
+        $this->authorize('checkUserReservation', $reservation);
+
+        //potwierdzenie rezerwacji wyciagnietej z BD
+        $this->bR->confirmReservation($reservation);
+
+        return redirect()->back()->with('message', 'Rezerwacja została potwierdzona.');;
     }
 
     public function deleteReservation($id)
     {
-        return 'to do';
+
+        $reservation = $this->bR->getReservation($id);
+
+        //jesli authorize nie przejdzie to kod ponizej NIE ZOSTANIE WYKONANY
+        //rezerwacja nie zostanie usunieta.
+        $this->authorize('checkUserReservation', $reservation);
+
+        //usuniecie rezerwacji wyciagnietej z BD
+        $this->bR->deleteReservation($reservation);
+
+        return redirect()->back()->with('message', 'Rezerwacja została usunięta.');
     }
 
 }

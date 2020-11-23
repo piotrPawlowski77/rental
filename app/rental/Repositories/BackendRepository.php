@@ -83,4 +83,22 @@ class BackendRepository implements BackendRepositoryInterface
             ->first();
     }
 
+    public function getReservation($id)
+    {
+        return Reservation::find($id);
+    }
+
+    public function confirmReservation(Reservation $reservation)
+    {
+        //dd('udalo sie potwierdzic');
+        return $reservation->update(['status'=>true]);
+    }
+
+    public function deleteReservation(Reservation $reservation)
+    {
+        //dd('udalo sie usunac');
+        //nie potrzebuje juz znac id rezerwacji bo juz zostala znaleziona w met. getReservation($id)
+        return $reservation->delete();
+    }
+
 }

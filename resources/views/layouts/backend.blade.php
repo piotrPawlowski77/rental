@@ -76,5 +76,6 @@
     <!-- Skrypt JS generujacyu kalendarz z rezerwacja danego auta w admin panel (index.blade.php) -->
     @stack('generate_reservation_calendar_script')
 
+
 </body>
 </html>
