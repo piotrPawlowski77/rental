@@ -50,7 +50,9 @@ Route::group(['prefix' => 'admin'], function (){
     Route::get('/', [\App\Http\Controllers\BackendController::class, 'index'])->name('adminHome');
     Route::get('/myCars', [\App\Http\Controllers\BackendController::class, 'myCars'])->name('myCars');
     Route::get('/addCar', [\App\Http\Controllers\BackendController::class, 'addCar'])->name('addCar');
-    Route::get('/cities', [\App\Http\Controllers\BackendController::class, 'cities'])->name('cities');
+
+    //rout-y CRUD do operacji na miastach
+    Route::resource('cities', \App\Http\Controllers\CityController::class);
 
     Route::match(['GET', 'POST'],'/profile', [\App\Http\Controllers\BackendController::class, 'profile'])->name('profile');
 

@@ -91,6 +91,8 @@ var Application = {
         {
             $('.reservationData' + Application.calendar_id + " .reservationData_confirm_reservation").attr('href', response.confirmResLink);
 
+            $('.reservationData' + Application.calendar_id + " .reservationData_confirm_reservation").removeAttr('disabled');
+
             $('.reservationData' + Application.calendar_id + " .reservatioData_delete_reservation").attr('href', response.deleteResLink);
         }
 

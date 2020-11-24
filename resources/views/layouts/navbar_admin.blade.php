@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cities') }}"> Miasta </a>
+                        <a class="nav-link" href="{{ route('cities.index') }}"> Miasta </a>
                     </li>
                 @endif
 

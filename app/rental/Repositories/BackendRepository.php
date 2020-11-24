@@ -6,6 +6,7 @@ namespace App\rental\Repositories;
 //komunikacja z BD
 
 use App\Models\Car;
+use App\Models\City;
 use App\Models\Reservation;
 use App\rental\Interfaces\BackendRepositoryInterface;
 
@@ -101,4 +102,35 @@ class BackendRepository implements BackendRepositoryInterface
         return $reservation->delete();
     }
 
+    //zwraca wszystkie miasta (CityController)
+    public function getAllCities()
+    {
+        return City::orderBy('name', 'asc')->get();
+    }
+
+    public function createNewCity($request)
+    {
+        $city = new City();
+
+        $city->name = $request->input('name');
+
+        $city->save();
+
+        return redirect()->back()->with('message', 'Dodano nowe miasto.');
+    }
+
+    public function getCity($id)
+    {
+        return City::find($id);
+    }
+
+    public function updateCity($request, $id)
+    {
+        return City::where('id', $id)->update(['name'=>$request->input('name')]);
+    }
+
+    public function deleteCity($id)
+    {
+        return City::where('id', $id)->delete();
+    }
 }

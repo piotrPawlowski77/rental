@@ -7,9 +7,13 @@ namespace App\rental\Gateways;
 //GATEWAY = walidacja form, logika biznesowa, odwolanie do repozytorium
 
 use App\rental\Interfaces\BackendRepositoryInterface;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class BackendGateway
 {
+
+    use ValidatesRequests; //import z Controller.php - potrzebny do zastos. tu metody validate()
+
     /**
      * BackendGateway constructor.
      */
@@ -32,6 +36,46 @@ class BackendGateway
 
         return $cars;
 
+    }
+
+    public function createNewCity($request)
+    {
+        $rules = array(
+            'name' => array('required', 'string', 'unique:cities'),
+        );
+
+        $error_messages = array(
+            'name.required' => 'Nazwa miasta jest wymagana',
+            'name.string' => 'Nazwa miasta musi być ciągiem znaków',
+            'name.unique' => 'Nazwa miasta już istnieje w bazie',
+
+        );
+
+        $this->validate($request, $rules, $error_messages);
+        //jesli validate() nie przejdzie to kod ponizej nie zostanie wykonany.
+        //Przekieruje nas na strone gdzie bylismy
+
+        //zapis miasta do BD -> bR
+        $this->bR->createNewCity($request);
+    }
+
+    public function updateCity($request, $id)
+    {
+        $rules = array(
+            'name' => array('required', 'string', 'unique:cities'),
+        );
+
+        $error_messages = array(
+            'name.required' => 'Nazwa miasta jest wymagana',
+            'name.string' => 'Nazwa miasta musi być ciągiem znaków',
+            'name.unique' => 'Nazwa miasta już istnieje w bazie',
+
+        );
+
+        $this->validate($request, $rules, $error_messages);
+
+
+        $this->bR->updateCity($request, $id);
     }
 
 

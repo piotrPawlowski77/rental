@@ -17,7 +17,7 @@ class BackendController extends Controller
      */
     public function __construct(BackendRepositoryInterface $bR, BackendGateway $bG)
     {
-        $this->middleware('CheckAdmin')->only(['myCars', 'addCar', 'cities', 'confirmReservation']);
+        $this->middleware('CheckAdmin')->only(['myCars', 'addCar', 'confirmReservation']);
 
         //mamy widoczne repozytorium i gateway w all metodach tej klasy
         $this->bR = $bR;
@@ -48,11 +48,6 @@ class BackendController extends Controller
     public function addCar()
     {
         return view('backend.add_car');
-    }
-
-    public function cities()
-    {
-        return view('backend.cities');
     }
 
     public function confirmReservation($id)
