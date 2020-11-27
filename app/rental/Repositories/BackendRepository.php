@@ -7,7 +7,9 @@ namespace App\rental\Repositories;
 
 use App\Models\Car;
 use App\Models\City;
+use App\Models\Photo;
 use App\Models\Reservation;
+use App\Models\User;
 use App\rental\Interfaces\BackendRepositoryInterface;
 
 class BackendRepository implements BackendRepositoryInterface
@@ -133,4 +135,55 @@ class BackendRepository implements BackendRepositoryInterface
     {
         return City::where('id', $id)->delete();
     }
+
+    public function saveEditUser($request)
+    {
+        //edytuje usera to najpierw musze go znalesc
+        $user = User::find($request->user()->id);
+
+        //przypisz edytowane dane
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+
+        //zapisz
+        $user->save();
+
+        //zwraca true jesli zapis ok
+        return $user;
+    }
+
+    public function getUserPhotoFromDB($id)
+    {
+        return Photo::find($id);
+    }
+
+    //$user, $photo to modele
+    public function updateUserPhoto($user, $photo)
+    {
+        return $user->photos()->save($photo);
+    }
+
+    public function createUserPhoto($user, $photoPath)
+    {
+        $photo = new Photo();
+
+        $photo->path = $photoPath;
+
+        return $user->photos()->save($photo);
+    }
+
+    public function deletePhoto(Photo $photo)
+    {
+        $photoPath = $photo->storagepath;
+
+        $photo->delete();
+
+        //usuwam zdjecie z BD a zwracam sciezke do niego w
+        //celu usuniecia go z folderu storage.
+        return $photoPath;
+    }
+
+
 }

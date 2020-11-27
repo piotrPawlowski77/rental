@@ -256,4 +256,11 @@ body > header {
     color: white;
 }
 
+/* farmularz profilu admin panel  */
+.form_profile
+{
+    text-align: left !important;
+}
+
+
 

@@ -56,6 +56,9 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::match(['GET', 'POST'],'/profile', [\App\Http\Controllers\BackendController::class, 'profile'])->name('profile');
 
+    //route do usuniecia zdjecia
+    Route::get('/deletePhoto/{id}', [\App\Http\Controllers\BackendController::class, 'deletePhoto'])->name('deletePhoto');
+
     //route do kalendarz rezerwacji - requesty ajax-owe
     Route::get('/getReservationDataFromDbByAjax', [\App\Http\Controllers\BackendController::class, 'getReservationDataFromDbByAjax'])->name('getReservationDataFromDbByAjax');
 

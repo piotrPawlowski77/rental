@@ -6,6 +6,8 @@ use App\rental\Gateways\BackendGateway;
 use App\rental\Interfaces\BackendRepositoryInterface;
 use App\rental\Traits\AjaxRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BackendController extends Controller
 {
@@ -35,9 +37,66 @@ class BackendController extends Controller
         return view('backend.index', compact('cars'));
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
-        return view('backend.profile');
+
+        if($request->isMethod('post'))
+        {
+            //zapis danych - walidacja
+            $user = $this->bG->saveEditUser($request);
+
+            if($request->hasFile('userPicture'))
+            {
+                $photoPath = $request->file('userPicture')->store('usersPhotos', 'public');
+                //dd($photoPath);
+
+                //spr czy uzytkownik ktory uploaduje obrazek mial wczesniej jakis obrazek
+                if(count($user->photos)!=0)
+                {
+                    //wyciagnij zdj usera ktore ma po id
+                    $photo = $this->bR->getUserPhotoFromDB($user->photos->first()->id);
+
+                    //usun foto z (storage/app/public)
+                    //za pomoca sciezki z BD usune z tego folderu photo
+                    Storage::disk('public')->delete($photo->storagepath);
+
+                    //przypisz nowa sicezke do nowego foto
+                    $photo->path = $photoPath;
+
+                    //update foto
+                    $this->bR->updateUserPhoto($user, $photo);
+                }
+                else
+                {
+                    //stworzenie nowego foto
+                    //czyli zapis sciezki do bazy danych
+                    $this->bR->createUserPhoto($user, $photoPath);
+                }
+
+            }
+
+            return redirect()->back()->with('message', 'Zaktualizowano dane profilu.');
+        }
+
+        return view('backend.profile', ['user'=>Auth::user()]);
+    }
+
+    //usuwanie zdjec
+    public function deletePhoto($id)
+    {
+        $photo = $this->bR->getUserPhotoFromDB($id);
+
+        $this->authorize('checkUserPhoto', $photo);
+
+        //autoryzacja/walidacja zdjecia przebiegla ok - moge usunac obrazek
+        //usun sciezke z BD
+        $photoPath = $this->bR->deletePhoto($photo);
+
+        //usun z dysku serwera
+        Storage::disk('public')->delete($photoPath);
+
+        return redirect()->back()->with('message', 'Usunięto zdjęcie profilu.');
+
     }
 
     public function myCars()

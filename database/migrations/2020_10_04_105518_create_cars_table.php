@@ -26,7 +26,7 @@ class CreateCarsTable extends Migration
             $table->bigInteger('status');
             //auto nalezy do jakiegos miasta
             $table->bigInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 

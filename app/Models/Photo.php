@@ -19,4 +19,18 @@ class Photo extends Model
         return $this->morphTo();
     }
 
+    //zwraca sciezke bezwzgl do uploadowanych zdjec
+    public function getPathAttribute($value)
+    {
+        //zwracam sciezke bezwzgledna
+        return asset("storage/{$value}");
+    }
+
+
+    public function getStoragepathAttribute()
+    {
+        //zwracam sciezke wzgledna
+        return $this->original['path'];
+    }
+
 }
