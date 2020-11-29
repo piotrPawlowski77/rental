@@ -23,7 +23,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('addCar') }}"> Dodaj samochód </a>
+                        <a class="nav-link" href="{{ route('carPanel') }}"> Dodaj samochód </a>
                     </li>
 
                     <li class="nav-item">

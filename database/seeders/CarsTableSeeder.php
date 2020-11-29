@@ -30,7 +30,6 @@ class CarsTableSeeder extends Seeder
                 'color' => $faker->word,
                 'power' => $faker->numberBetween(60,163),
                 'price' => $faker->numberBetween(200, 400),
-                'status' => $faker->boolean(50),
                 'city_id' => $faker->numberBetween(1,10),
             ]);
         }

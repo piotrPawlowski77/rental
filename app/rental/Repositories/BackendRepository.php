@@ -11,6 +11,7 @@ use App\Models\Photo;
 use App\Models\Reservation;
 use App\Models\User;
 use App\rental\Interfaces\BackendRepositoryInterface;
+use PhpParser\Node\Stmt\Return_;
 
 class BackendRepository implements BackendRepositoryInterface
 {
@@ -183,6 +184,59 @@ class BackendRepository implements BackendRepositoryInterface
         //usuwam zdjecie z BD a zwracam sciezke do niego w
         //celu usuniecia go z folderu storage.
         return $photoPath;
+    }
+
+    public function getCar($id)
+    {
+        return Car::find($id);
+    }
+
+    public function updateCar($id, $request)
+    {
+        $car = Car::find($id);
+
+        $car->model = $request->input('model');
+        $car->brand = $request->input('brand');
+        $car->type = $request->input('type');
+        $car->engine = $request->input('engine');
+        $car->fuel_type = $request->input('fuel_type');
+        $car->color = $request->input('color');
+        $car->power = $request->input('power');
+        $car->price = $request->input('price');
+        $car->city_id = $request->input('city');
+
+        $car->save();
+
+        return $car;
+    }
+
+    public function createCar($request)
+    {
+        $car = new Car();
+
+        $car->model = $request->input('model');
+        $car->brand = $request->input('brand');
+        $car->type = $request->input('type');
+        $car->engine = $request->input('engine');
+        $car->fuel_type = $request->input('fuel_type');
+        $car->color = $request->input('color');
+        $car->power = $request->input('power');
+        $car->price = $request->input('price');
+        $car->city_id = $request->input('city');
+
+        $car->save();
+
+        return $car;
+
+    }
+
+    public function saveCarPhotos($car, $photoPath)
+    {
+        $photo = new Photo();
+
+        $photo->path = $photoPath;
+
+        return $car->photos()->save($photo);
     }
 
 

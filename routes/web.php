@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::get('/', [\App\Http\Controllers\BackendController::class, 'index'])->name('adminHome');
     Route::get('/myCars', [\App\Http\Controllers\BackendController::class, 'myCars'])->name('myCars');
-    Route::get('/addCar', [\App\Http\Controllers\BackendController::class, 'addCar'])->name('addCar');
+    Route::match(['GET', 'POST'], '/carPanel/{id?}', [\App\Http\Controllers\BackendController::class, 'carPanel'])->name('carPanel');
 
     //rout-y CRUD do operacji na miastach
     Route::resource('cities', \App\Http\Controllers\CityController::class);

@@ -33,4 +33,14 @@ class Photo extends Model
         return $this->original['path'];
     }
 
+    public static function imgRules($request, $type)
+    {
+        for ($i=0; $i <= count($request->file($type))-1; $i++)
+        {
+            $imgRules["$type.$i"] = 'image|max:200';
+        }
+
+        return $imgRules;
+    }
+
 }

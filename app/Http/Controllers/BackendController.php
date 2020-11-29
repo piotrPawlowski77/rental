@@ -19,7 +19,7 @@ class BackendController extends Controller
      */
     public function __construct(BackendRepositoryInterface $bR, BackendGateway $bG)
     {
-        $this->middleware('CheckAdmin')->only(['myCars', 'addCar', 'confirmReservation']);
+        $this->middleware('CheckAdmin')->only(['myCars', 'carPanel', 'confirmReservation']);
 
         //mamy widoczne repozytorium i gateway w all metodach tej klasy
         $this->bR = $bR;
@@ -104,9 +104,34 @@ class BackendController extends Controller
         return view('backend.my_cars');
     }
 
-    public function addCar()
+    public function carPanel($id = null, Request $request)
     {
-        return view('backend.add_car');
+
+        //post - zapisz nowego auta / edycja nowego auta
+        if($request->isMethod('POST'))
+        {
+            $this->bG->saveCar($id, $request);
+
+            if($id)
+                return redirect()->back()->with('message', 'Samochód został edytowany.'); //przekierowuje sie spowrotem jesli bd edytowal auto (abym mogl zobaczyc zmiany)
+            else
+                return redirect()->route('myCars');  //jesli bd tworzyl nowe auto to przekieruje sie do LISTY AUT (Lista samochodow)
+
+        }
+
+        //KIEDY REQUEST JEST GET: tworzenie/edycja
+        //jesli $id nie jest null
+        if($id)
+        {
+            //edytuje istniejace auto
+            return view('backend.car_panel', ['car'=>$this->bR->getCar($id), 'cities'=>$this->bR->getAllCities()]);
+        }
+        else
+        {
+            //zwracam widok z lista miast
+            return view('backend.car_panel', ['cities'=>$this->bR->getAllCities()]);
+        }
+
     }
 
     public function confirmReservation($id)
@@ -120,7 +145,7 @@ class BackendController extends Controller
         //potwierdzenie rezerwacji wyciagnietej z BD
         $this->bR->confirmReservation($reservation);
 
-        return redirect()->back()->with('message', 'Rezerwacja została potwierdzona.');;
+        return redirect()->back()->with('message', 'Rezerwacja została potwierdzona.');
     }
 
     public function deleteReservation($id)

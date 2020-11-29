@@ -6,6 +6,7 @@ namespace App\rental\Gateways;
 //w gateway uzywac bd repozytorium
 //GATEWAY = walidacja form, logika biznesowa, odwolanie do repozytorium
 
+use App\Models\Photo;
 use App\rental\Interfaces\BackendRepositoryInterface;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -122,6 +123,90 @@ class BackendGateway
         //walidacja przeszla = zapisz usera w bd
         return $this->bR->saveEditUser($request);
 
+    }
+
+    //id auta, dane formularza
+    public function saveCar($id, $request)
+    {
+        //walidacja
+        $rules = array(
+
+            'city' => array('required', 'string'),
+            'brand' => array('required', 'string'),
+            'model' => array('required', 'string'),
+            'type' => array('required', 'string'),
+            'engine' => array('required', 'string'),
+            'fuel_type' => array('required', 'string'),
+            'color' => array('required', 'string'),
+            'power' => array('required', 'integer'),
+            'price' => array('required', 'integer'),
+        );
+
+        $error_messages = array(
+            'city.required' => 'Miasto jest wymagane',
+            'city.string' => 'Miasto musi być ciągiem znaków',
+
+            'brand.required' => 'Marka jest wymagane',
+            'brand.string' => 'Marka musi być ciągiem znaków',
+
+            'model.required' => 'Model jest wymagane',
+            'model.string' => 'Model musi być ciągiem znaków',
+
+            'type.required' => 'Typ nadwozia jest wymagane',
+            'type.string' => 'Typ nadwozia musi być ciągiem znaków',
+
+            'engine.required' => 'Silnik jest wymagane',
+            'engine.string' => 'Silnik musi być ciągiem znaków',
+
+            'fuel_type.required' => 'Rodzaj paliwa jest wymagane',
+            'fuel_type.string' => 'Rodzaj paliwa musi być ciągiem znaków',
+
+            'color.required' => 'Kolor auta jest wymagane',
+            'color.string' => 'Kolor auta musi być ciągiem znaków',
+
+            'power.required' => 'Moc silnika jest wymagane',
+            'power.integer' => 'Moc silnika musi być liczbą',
+
+            'price.required' => 'Cena jest wymagane',
+            'price.integer' => 'Cena musi być liczbą',
+
+        );
+
+        $this->validate($request, $rules, $error_messages);
+
+        if($id)
+        {
+            $car = $this->bR->updateCar($id, $request);
+            //update car
+        }
+        else
+        {
+            $car = $this->bR->createCar($request);
+            //create new car- nie przekazuje $id bo nie istnieje jeszcze samochod
+        }
+
+        //czy byl upload zdjec
+        if($request->hasFile('carsPicture'))
+        {
+            //to do
+            //potrzebny mi dostep do obiektu auta wiec
+            //metody: updateCar i createCar przypisze do zmiennych $car
+
+            //walidacja
+            $this->validate($request, Photo::imgRules($request, 'carsPicture'));
+
+            //jesli walidacja przejdzie to = wszystkie obrazki musze uplodowac do store i BD
+            foreach ($request->file('carsPicture') as $picture)
+            {
+                $photoPath = $picture->store('carsPicture', 'public');
+
+                //nie wystarczy mi sam upload. Musze zapisac jeszcze sciezke w BD
+                $this->bR->saveCarPhotos($car, $photoPath);
+            }
+
+        }
+
+        return $car;
     }
 
 
