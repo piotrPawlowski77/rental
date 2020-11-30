@@ -239,5 +239,13 @@ class BackendRepository implements BackendRepositoryInterface
         return $car->photos()->save($photo);
     }
 
+    public function getCarsFromCity()
+    {
+        return City::with('cars')->has('cars')->orderBy('name','asc')->get();
+    }
+    public function deleteCar($id)
+    {
+        return Car::where('id', $id)->delete();
+    }
 
 }

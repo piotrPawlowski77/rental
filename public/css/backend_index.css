@@ -262,5 +262,9 @@ body > header {
     text-align: left !important;
 }
 
-
+.card
+{
+    float: left;
+    margin: 20px;
+}
 

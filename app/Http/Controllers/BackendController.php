@@ -101,7 +101,12 @@ class BackendController extends Controller
 
     public function myCars()
     {
-        return view('backend.my_cars');
+        //lista aut w danym miescie
+        $cities = $this->bR->getCarsFromCity();
+
+        //dd($cities);
+
+        return view('backend.my_cars', compact('cities'));
     }
 
     public function carPanel($id = null, Request $request)
@@ -161,6 +166,12 @@ class BackendController extends Controller
         $this->bR->deleteReservation($reservation);
 
         return redirect()->back()->with('message', 'Rezerwacja została usunięta.');
+    }
+    public function deleteCar($id)
+    {
+        $this->bR->deleteCar($id);
+
+        return redirect()->back()->with('message', 'Samochód został usunięty.');
     }
 
 }

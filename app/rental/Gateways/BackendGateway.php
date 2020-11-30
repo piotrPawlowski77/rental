@@ -174,16 +174,6 @@ class BackendGateway
 
         $this->validate($request, $rules, $error_messages);
 
-        if($id)
-        {
-            $car = $this->bR->updateCar($id, $request);
-            //update car
-        }
-        else
-        {
-            $car = $this->bR->createCar($request);
-            //create new car- nie przekazuje $id bo nie istnieje jeszcze samochod
-        }
 
         //czy byl upload zdjec
         if($request->hasFile('carsPicture'))
@@ -194,6 +184,18 @@ class BackendGateway
 
             //walidacja
             $this->validate($request, Photo::imgRules($request, 'carsPicture'));
+
+
+            if($id)
+            {
+                $car = $this->bR->updateCar($id, $request);
+                //update car
+            }
+            else
+            {
+                $car = $this->bR->createCar($request);
+                //create new car- nie przekazuje $id bo nie istnieje jeszcze samochod
+            }
 
             //jesli walidacja przejdzie to = wszystkie obrazki musze uplodowac do store i BD
             foreach ($request->file('carsPicture') as $picture)
@@ -206,7 +208,7 @@ class BackendGateway
 
         }
 
-        return $car;
+        //return $car;
     }
 
 
