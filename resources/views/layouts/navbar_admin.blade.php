@@ -40,7 +40,12 @@
                 <li class="nav-item dropdown no_a_decoration">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
-                        <span id="app-notification-count" class="button_mark">4</span>
+                        @if( $nCount = count($notifications->where('status',0)) )
+                            <span id="notifCount" class="button_mark">{{ $nCount }}</span>
+                        @else
+                            <span id="notifCount" class="button_mark nCount_hide">0</span>
+                        @endif
+
 
                         <span class="fa fa-envelope"></span>
 
@@ -48,11 +53,17 @@
 
                     <!-- notification list dropdown -->
                     <ul id="app-notification-list" class="dropdown-menu notification_list">
-                        <li><a href="#"> Lorem ipsum dolor .......... </a></li>
-                        <li><a href="#"> Lorem ipsum dolor2 .......... </a></li>
-                        <li class="unread_notification"><a href="#"> Lorem ipsum dolor3 ......... </a></li>
-                        <li><a href="#"> Lorem ipsum dolor4 .......... </a></li>
-                        <li class="unread_notification"><a href="#"> Lorem ipsum dolor5 ......... </a></li>
+
+                        @foreach($notifications as $notification)
+
+                            @if($notification->status)
+                                <li><a>{{ $notification->content }}</a></li>
+                            @else
+                                <li class="unread_notification"><a href="{{ $notification->id }}">{{ $notification->content }}</a></li>
+                            @endif
+
+                        @endforeach
+
                     </ul>
 
                 </li>

@@ -95,5 +95,7 @@ class FrontendRepository implements FrontendRepositoryInterface
         $reservation->car_id = $car_id;
 
         $reservation->save();
+
+        return $reservation;
     }
 }

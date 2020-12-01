@@ -7,6 +7,7 @@ namespace App\rental\Repositories;
 
 use App\Models\Car;
 use App\Models\City;
+use App\Models\Notification;
 use App\Models\Photo;
 use App\Models\Reservation;
 use App\Models\User;
@@ -246,6 +247,11 @@ class BackendRepository implements BackendRepositoryInterface
     public function deleteCar($id)
     {
         return Car::where('id', $id)->delete();
+    }
+
+    public function setReadNotificationByAjax($request)
+    {
+        return Notification::where('id', $request->input('id'))->update(['status'=>1]);
     }
 
 }

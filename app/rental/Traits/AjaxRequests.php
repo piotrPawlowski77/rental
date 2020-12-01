@@ -31,4 +31,10 @@ trait AjaxRequests
 
     }
 
+    public function setReadNotificationByAjax(Request $request)
+    {
+        //zapis w BD
+        return $this->bR->setReadNotificationByAjax($request);
+    }
+
 }

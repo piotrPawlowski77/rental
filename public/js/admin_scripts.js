@@ -44,6 +44,25 @@ var AjaxObj = {
 
         });
 
+    },
+
+    set: function (data = {}, url, success = null) {
+
+        $.ajax({
+
+            cache: false,
+            url: b_url + '/' + url,
+            type: "GET",
+            dataType: "json",
+            data: data,
+            success: function (response) {
+
+                if(success)
+                    Application[success](response);
+            }
+
+        });
+
     }
 
 }
@@ -98,8 +117,37 @@ var Application = {
 
     },
 
+    NotificationIsRead: function (notifId) {
 
+        AjaxObj.set({id:notifId}, 'setReadNotificationByAjax')
+
+    }
 
 };
+
+$(document).on('click', '.unread_notification', function (event) {
+    event.preventDefault();
+
+    $(this).removeClass('unread_notification');
+
+    var notifCount = parseInt( $('#notifCount').html() );
+
+    if( notifCount > 0 )
+    {
+        $('#notifCount').html(notifCount - 1);
+
+        if(notifCount == 1)
+        {
+            $('#notifCount').hide();
+        }
+    }
+
+    var notifId = $(this).children().attr('href');
+
+    $(this).children().removeAttr('href');
+
+    Application.NotificationIsRead(notifId);
+
+});
 
 

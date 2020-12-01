@@ -63,6 +63,9 @@ Route::group(['prefix' => 'admin'], function (){
     //route do kalendarz rezerwacji - requesty ajax-owe
     Route::get('/getReservationDataFromDbByAjax', [\App\Http\Controllers\BackendController::class, 'getReservationDataFromDbByAjax'])->name('getReservationDataFromDbByAjax');
 
+    //route do wyslania info ze powiadomienie przeczytane - requesty ajax-owe
+    Route::get('/setReadNotificationByAjax', [\App\Http\Controllers\BackendController::class, 'setReadNotificationByAjax'])->name('setReadNotificationByAjax');
+
     //route do potwierdzania rezerwacji
     Route::get('/confirmReservation/{id}', [\App\Http\Controllers\BackendController::class, 'confirmReservation'])->name('confirmReservation');
 

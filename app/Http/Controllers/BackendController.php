@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ReservationConfirmedByAdminEvent;
 use App\rental\Gateways\BackendGateway;
 use App\rental\Interfaces\BackendRepositoryInterface;
 use App\rental\Traits\AjaxRequests;
@@ -149,6 +150,8 @@ class BackendController extends Controller
 
         //potwierdzenie rezerwacji wyciagnietej z BD
         $this->bR->confirmReservation($reservation);
+
+        event( new ReservationConfirmedByAdminEvent($reservation) );
 
         return redirect()->back()->with('message', 'Rezerwacja została potwierdzona.');
     }

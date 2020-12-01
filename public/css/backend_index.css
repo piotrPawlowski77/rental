@@ -239,6 +239,13 @@ body > header {
     text-decoration: none;
 }
 
+/* zeby lista notif nie wyjezdzala poza ekran */
+.dropdown-menu
+{
+    right: 0;
+    left: auto;
+}
+
 /* kalendarz rezerwacji admin panel */
 .rezerw_potwierdzona
 {
@@ -262,9 +269,15 @@ body > header {
     text-align: left !important;
 }
 
+/* my cars admin panel  */
 .card
 {
     float: left;
     margin: 20px;
 }
 
+/* ukrycie licznika powiadomien admin panel  */
+.nCount_hide
+{
+    visibility: hidden !important;
+}

@@ -34,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //powiadomienia
+        View::composer('backend.*', 'App\rental\ViewComposers\BackendComposer');
+
         //zeby zmienna $imgTemp byla widoczna w all widokach frontendu
         View::composer('frontend.*', function ($view){
 

@@ -79,26 +79,6 @@
 
         </section>
 
-        @auth
-
-            <section class="cars">
-
-                <div class="container">
-
-                    <header>
-                        <h1>Dostępne auta</h1>
-                    </header>
-
-                    <div class="row">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        @endauth
-
     </main>
 
 @endsection

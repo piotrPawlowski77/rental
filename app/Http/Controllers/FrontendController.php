@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ReservationPlacedByClientEvent;
+use App\Models\Role;
 use App\rental\Gateways\FrontendGateway;
 use App\rental\Interfaces\FrontendRepositoryInterface;
 use Illuminate\Http\Request;
@@ -124,6 +126,8 @@ class FrontendController extends Controller
             //add reservation - formularz juz zwalidowany we FG
             //wiec moge dokonac rezerwacji
             $reservation = $this->fR->makeReservation($car_id, $city_id,$request);
+
+            event( new ReservationPlacedByClientEvent($reservation) );
 
             //rezerwacja ok - redirect to admin panel
             return redirect()->route('adminHome');
