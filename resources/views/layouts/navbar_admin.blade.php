@@ -13,9 +13,15 @@
             <!--Left side of navbar-->
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('adminHome') }}"> Twoje rezerwacje </a>
-                </li>
+                @if(\Illuminate\Support\Facades\Auth::user()->hasRole(['admin']))
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('adminHome') }}"> Rezerwacje klientów </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('adminHome') }}"> Twoje rezerwacje </a>
+                    </li>
+                @endif
 
                 @if(\Illuminate\Support\Facades\Auth::user()->hasRole(['admin']))
                     <li class="nav-item">

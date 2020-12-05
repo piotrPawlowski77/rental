@@ -37,57 +37,57 @@
 
                 @endforeach
 
-                <header>
-                    <h1>Dane techniczne</h1>
-                </header>
+{{--                <header>--}}
+{{--                    <h1>Dane techniczne</h1>--}}
+{{--                </header>--}}
 
-                    <div class="row">
+{{--                    <div class="row">--}}
 
-                        <div class="col-sm-12 col-md-12 col-lg-12">
+{{--                        <div class="col-sm-12 col-md-12 col-lg-12">--}}
 
-                            <div class = "table-responsive">
-                                <table class = "table">
+{{--                            <div class = "table-responsive">--}}
+{{--                                <table class = "table">--}}
 
-                                    <thead>
-                                    <tr>
-                                        <th>{{ $car->brand }}</th>
-                                        <th>{{ $car->model  }}</th>
-                                    </tr>
-                                    </thead>
+{{--                                    <thead>--}}
+{{--                                    <tr>--}}
+{{--                                        <th>{{ $car->brand }}</th>--}}
+{{--                                        <th>{{ $car->model  }}</th>--}}
+{{--                                    </tr>--}}
+{{--                                    </thead>--}}
 
-                                    <tbody>
-                                    <tr>
-                                        <td>Typ</td>
-                                        <td>{{ $car->type }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Silnik</td>
-                                        <td>{{ $car->engine }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rodzaj paliwa</td>
-                                        <td>{{ $car->fuel_type }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kolor</td>
-                                        <td>{{ $car->color }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Moc</td>
-                                        <td>{{ $car->power }} km</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cena za dzień</td>
-                                        <td>{{ $car->price }} zł</td>
-                                    </tr>
-                                    </tbody>
+{{--                                    <tbody>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Typ</td>--}}
+{{--                                        <td>{{ $car->type }}</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Silnik</td>--}}
+{{--                                        <td>{{ $car->engine }}</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Rodzaj paliwa</td>--}}
+{{--                                        <td>{{ $car->fuel_type }}</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Kolor</td>--}}
+{{--                                        <td>{{ $car->color }}</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Moc</td>--}}
+{{--                                        <td>{{ $car->power }} km</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>Cena za dzień</td>--}}
+{{--                                        <td>{{ $car->price }} zł</td>--}}
+{{--                                    </tr>--}}
+{{--                                    </tbody>--}}
 
-                                </table>
-                            </div>
+{{--                                </table>--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
                 <header>
                     <h1>Rezerwacja</h1>

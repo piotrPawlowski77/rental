@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="select" class="col-lg-2">Rating</label>
+                                        <label for="select" class="col-lg-2">Ocena</label>
                                         <div class="col-lg-10">
                                             <select name="rating" class="form-control" id="select">
                                                 <option value="5">5</option>

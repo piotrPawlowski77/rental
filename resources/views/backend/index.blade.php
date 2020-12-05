@@ -26,9 +26,16 @@
                     </div>
                 @endif
 
-                <header>
-                    <h1>Twoje rezerwacje</h1>
-                </header>
+                @if(\Illuminate\Support\Facades\Auth::user()->hasRole(['admin']))
+                    <header>
+                        <h1>Rezerwacje klientów</h1>
+                    </header>
+                @else
+                    <header>
+                        <h1>Twoje rezerwacje</h1>
+                    </header>
+                @endif
+
 
                 <div class="row">
 

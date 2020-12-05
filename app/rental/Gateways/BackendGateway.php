@@ -107,12 +107,12 @@ class BackendGateway
         {
             //walidacja
             $rules = array(
-                'userPicture' => array('image', 'max:100'),
+                'userPicture' => array('image', 'max:200'),
             );
 
             $error_messages = array(
                 'userPicture.image' => 'Plik musi być zdjęciem',
-                'userPicture.max' => 'Zdjęcie nie może być większe niż 100kb',
+                'userPicture.max' => 'Zdjęcie nie może być większe niż 200kb',
 
             );
 

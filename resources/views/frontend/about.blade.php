@@ -25,7 +25,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-6 kafelek">
 
                         <figure>
-                            <img src="images/random.jpg" class="rounded img-fluid" alt="Auto">
+                            <img src="images/imgTmp2.jpg" class="rounded img-fluid" alt="Auto">
                             <figcaption> </figcaption>
                         </figure>
 
