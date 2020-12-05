@@ -27,7 +27,7 @@ class ReservationsTableSeeder extends Seeder
                 'rental_day_out' => $faker->dateTimeBetween('now', '+10 days'),
                 'status' => $faker->boolean(50),
                 'user_id' => $faker->numberBetween(2,10),
-                'city_id' => $faker->numberBetween(1,10),
+                'city_id' => $faker->numberBetween(1,2),
                 'car_id' => $faker->numberBetween(1,10),
 
             ]);

@@ -34,7 +34,6 @@
                                         <p>Kolor: {{ $car->color }}</p>
                                         <p>Moc: {{ $car->power }} km</p>
                                         <p>Cena za dzień: {{ $car->price }} zł</p>
-                                        <p>Status: {{ $car->status }}</p>
                                         <p> <a href="{{ route('carReservation', ['id' => $car->id]) }}" role="button" class="btn btn-success">Zarezerwuj</a> </p>
                                     </div>
 
