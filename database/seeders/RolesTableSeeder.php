@@ -17,14 +17,23 @@ class RolesTableSeeder extends Seeder
     {
         $faker = Factory::create('pl_PL');    //pl_PL spowoduje ze dane bd polskie
 
-        for($i =1; $i<=10; $i++)
+        DB::table('roles')->insert([
+
+            'user_id' => $faker->unique()->numberBetween(1,1),
+            'role_name' => $faker->randomElement(['admin']),
+
+        ]);
+
+        for($i =1; $i<=9; $i++)
         {
             DB::table('roles')->insert([
 
-                'user_id' => $faker->unique()->numberBetween(1,10),
-                'role_name' => $faker->randomElement(['client', 'admin']),
+                'user_id' => $faker->unique()->numberBetween(2,10),
+                'role_name' => $faker->randomElement(['client']),
 
             ]);
         }
+
+
     }
 }

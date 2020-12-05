@@ -15,16 +15,16 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create('pl_PL');    //pl_PL spowoduje ze dane bd polskie
+//        $faker = Factory::create('pl_PL');    //pl_PL spowoduje ze dane bd polskie
 
-        for($i =1; $i<=10; $i++)
-        {
-            DB::table('contacts')->insert([
-
-                'email' => $faker->email,
-                'message_content' => $faker->sentence(10,true),
-
-            ]);
-        }
+//        for($i =1; $i<=10; $i++)
+//        {
+//            DB::table('contacts')->insert([
+//
+//                'email' => $faker->email,
+//                'message_content' => $faker->sentence(10,true),
+//
+//            ]);
+//        }
     }
 }

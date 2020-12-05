@@ -25,7 +25,7 @@
 
                                 <div class="img-thumbnail">
 
-                                    <img class="img-fluid" src="{{ $car_photo->path ?? $imgTmp }}" alt="#">
+                                    <img class="img-fluid" src="{{ $car_photo->path ?? $imgTmp2 }}" alt="#">
 
                                 </div>
 
@@ -79,10 +79,6 @@
                                     <tr>
                                         <td>Cena za dzień</td>
                                         <td>{{ $car->price }} zł</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status</td>
-                                        <td>{{ $car->status }}</td>
                                     </tr>
                                     </tbody>
 

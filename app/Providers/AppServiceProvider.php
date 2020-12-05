@@ -44,5 +44,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('imgTmp', asset('images/imgTmp.jpg'));
 
         });
+
+        //zeby zmienna $imgTemp2 byla widoczna w all widokach frontendu
+        View::composer('frontend.*', function ($view){
+
+            //with(nazwa zmiennej ktora chce w widoku zdefiniowac, to co chceej zmiennej przypisac - sciezka bezwzgl)
+            $view->with('imgTmp2', asset('images/imgTmp2.jpg'));
+
+        });
     }
 }

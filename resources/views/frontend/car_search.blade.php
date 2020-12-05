@@ -24,7 +24,7 @@
 
                                 <div class="img-thumbnail">
 
-                                    <img class="img-fluid" src="{{ $car->photos->first()->path ?? $imgTmp }}" alt="#">
+                                    <img class="img-fluid" src="{{ $car->photos->first()->path ?? $imgTmp2 }}" alt="#">
 
                                     <div class="car_details">
                                         <h3>Marka: {{ $car->brand }} Model: {{ $car->model }}</h3>
